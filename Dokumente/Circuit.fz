@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module fritzingVersion="0.3.19b.04.16.4119">
+    <views>
+        <view name="breadboardView" backgroundColor="#cccccc"/>
+        <view name="schematicView" backgroundColor="#ffffff"/>
+        <view name="pcbView" backgroundColor="#a0a8b3"/>
+    </views>
+    <instances>
+        <instance moduleIdRef="RectanglePCBModuleID" modelIndex="198" path=":/resources/parts/core/rectangle_pcb.fzp">
+            <property name="width" value="31.0444444444444"/>
+            <property name="height" value="100.753333333333"/>
+            <title>PCB1</title>
+            <views>
+                <pcbView layer="board">
+                    <geometry z="1.50001" x="143" y="80"/>
+                </pcbView>
+            </views>
+        </instance>
+        <instance moduleIdRef="1000FADF10011" modelIndex="206" path="/Users/martin/Downloads/fritzing.2010.04.16.mac/parts/core/dc_motor.fzp">
+            <title>M1</title>
+            <views>
+                <breadboardView layer="breadboard">
+                    <geometry z="2.50001" x="468" y="-110"/>
+                </breadboardView>
+                <pcbView layer="copper0">
+                    <geometry z="5.50002" x="298" y="127"/>
+                    <titleGeometry visible="true" x="310.6" y="118" z="9.50001" xOffset="12.6" yOffset="-9" textColor="#ffffff" fontSize="7">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </pcbView>
+                <schematicView layer="schematic">
+                    <geometry z="1.5" x="468" y="168"/>
+                    <titleGeometry visible="true" x="605.875" y="157" z="4.50001" xOffset="137.875" yOffset="-11" textColor="#000000" fontSize="9">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </schematicView>
+            </views>
+        </instance>
+        <instance moduleIdRef="1000FADF10011" modelIndex="208" path="/Users/martin/Downloads/fritzing.2010.04.16.mac/parts/core/dc_motor.fzp">
+            <title>M2</title>
+            <views>
+                <breadboardView layer="breadboard">
+                    <geometry z="2.50002" x="471.018" y="-362.978"/>
+                </breadboardView>
+                <pcbView layer="copper0">
+                    <geometry z="5.50003" x="549.854" y="449.984"/>
+                    <titleGeometry visible="true" x="562.454" y="440.984" z="9.50002" xOffset="12.6" yOffset="-9" textColor="#ffffff" fontSize="7">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </pcbView>
+                <schematicView layer="schematic">
+                    <geometry z="1.50002" x="719.854" y="490.984"/>
+                    <titleGeometry visible="true" x="857.729" y="479.984" z="4.50002" xOffset="137.875" yOffset="-11" textColor="#000000" fontSize="9">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </schematicView>
+            </views>
+        </instance>
+        <instance moduleIdRef="1000FADF10011" modelIndex="210" path="/Users/martin/Downloads/fritzing.2010.04.16.mac/parts/core/dc_motor.fzp">
+            <title>M3</title>
+            <views>
+                <breadboardView layer="breadboard">
+                    <geometry z="2.50003" x="464.362" y="-613.642"/>
+                </breadboardView>
+                <pcbView layer="copper0">
+                    <geometry z="5.50004" x="525.781" y="360.532"/>
+                    <titleGeometry visible="true" x="538.381" y="351.532" z="9.50003" xOffset="12.6" yOffset="-9" textColor="#ffffff" fontSize="7">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </pcbView>
+                <schematicView layer="schematic">
+                    <geometry z="1.50003" x="588.781" y="384.532"/>
+                    <titleGeometry visible="true" x="726.655" y="373.532" z="4.50003" xOffset="137.875" yOffset="-11" textColor="#000000" fontSize="9">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </schematicView>
+            </views>
+        </instance>
+        <instance moduleIdRef="1000AFDF10011" modelIndex="218" path="/Users/martin/Downloads/fritzing.2010.04.16.mac/parts/core/battery-AA.fzp">
+            <title>VCC1</title>
+            <views>
+                <breadboardView layer="breadboard">
+                    <geometry z="2.50004" x="40.4387" y="-477.571"/>
+                </breadboardView>
+                <pcbView layer="copper0">
+                    <geometry z="5.50005" x="656.446" y="878.829"/>
+                    <titleGeometry visible="true" x="669.046" y="869.829" z="9.50006" xOffset="12.6" yOffset="-9" textColor="#ffffff" fontSize="7">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </pcbView>
+                <schematicView layer="schematic">
+                    <geometry z="1.50004" x="669.446" y="878.829"/>
+                    <titleGeometry visible="true" x="737.321" y="867.829" z="4.50006" xOffset="67.875" yOffset="-11" textColor="#000000" fontSize="9">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </schematicView>
+            </views>
+        </instance>
+        <instance moduleIdRef="4321DEAB24_ST" modelIndex="238" path="/Users/martin/Downloads/fritzing.2010.04.16.mac/parts/core/arduino.fzp">
+            <title>Arduino1</title>
+            <views>
+                <breadboardView layer="breadboardbreadboard">
+                    <geometry z="1.50008" x="136" y="-149"/>
+                </breadboardView>
+                <schematicView layer="schematic">
+                    <geometry z="1.50008" x="136" y="80"/>
+                    <titleGeometry visible="true" x="404.65" y="69" z="4.50008" xOffset="268.65" yOffset="-11" textColor="#000000" fontSize="9">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </schematicView>
+                <pcbView layer="copper0">
+                    <geometry z="5.50009" x="136" y="80"/>
+                    <titleGeometry visible="true" x="283.51" y="71" z="12.5001" xOffset="147.51" yOffset="-9" textColor="#ffffff" fontSize="7">
+                        <displayKey key=""/>
+                    </titleGeometry>
+                </pcbView>
+            </views>
+        </instance>
+    </instances>
+</module>

@@ -1,0 +1,54 @@
+% Papierformat
+\documentclass[a4paper, 12pt, bibtotocnumbered, liststotocnumbered]{scrartcl}
+
+% Seitenränder
+\usepackage[top=2.5cm, left=4cm, right=2cm, bottom=2.5cm]{geometry}
+
+% Zeichenkodierung
+\usepackage[utf8]{inputenc}
+
+% Deutsche Silbentrennung
+\usepackage[ngerman]{babel}
+
+% Deutsches Literaturverzeichnis
+\usepackage{babelbib}
+
+% Zitieren mit cite-key ermöglichen
+\usepackage{cite}
+
+% Erweiterte Funktionialität von URLs
+\usepackage{url}
+
+\begin{document}
+	\title{Entwicklung eines Remote-Heads für einen Kamerakran}
+	\author{Martin Müller}
+
+	% Deckblatt
+	\begin{center}
+		\large{Clavius-Gymnasium Bamberg}\\
+		\Large{Facharbeit im Leistungskurs Phsyik}\\
+		\large{Kollegstufe 2010/2011}
+		\vfill{Entwicklung eines Remote-Heads für einen Kamerakran}
+	\end{center}
+
+	\pagebreak
+
+	% Inhaltsverzeichnis
+	\tableofcontents
+
+	\pagebreak
+
+	\section{Einleitung}
+	Blabla
+
+	% Um die Bibliographie einzubinden sind folgende Schritte notwendig:
+	% 1. LaTeX setzen (findet NOTWENDIGE Verweise und speichert diese in .aux-Datei)
+	% 2. BibTeX setzen (generiert .bbl-Datei)
+	% 3. LaTeX erneut setzen (bindet .bbl-Datei in das Dokument ein)
+	\nocite{*}
+	\bibliography{Quellen}
+	\bibliographystyle{alphadin}
+
+	% Bilderverzeichnis
+	\listoffigures
+\end{document}
