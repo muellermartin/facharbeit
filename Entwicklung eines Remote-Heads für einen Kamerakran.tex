@@ -4,6 +4,10 @@
 % Seitenränder
 \usepackage[top=2.5cm, left=4cm, right=2cm, bottom=2.5cm]{geometry}
 
+% Zeilenabstand 1 1/2 Zeilen.
+\usepackage{setspace}
+\onehalfspacing
+
 % Zeichenkodierung
 \usepackage[utf8]{inputenc}
 
@@ -24,16 +28,23 @@
 	\author{Martin Müller}
 
 	% Titelseite
+	\thispagestyle{empty}
 	\begin{center}
 		\large{Clavius-Gymnasium Bamberg}\\
-		\Large{Facharbeit im Leistungskurs Phsyik}\\
+		\Large\textsc{Facharbeit im Leistungskurs Phsyik}\\
 		\large{Kollegstufe 2010/2011}
-		\vfill{Entwicklung eines Remote-Heads für einen Kamerakran}
+		\vfill
+		\Huge{Entwicklung eines Remote-Heads für einen Kamerakran}\\
+		\vfill
+		\hfill{Müller, Martin}\\
+		\hfill{23. Dezember 2010}\\
 	\end{center}
+	StR Wolfang Faltin
 
 	\pagebreak
 
 	% Inhaltsverzeichnis
+	\thispagestyle{empty}
 	\tableofcontents
 
 	\pagebreak
@@ -50,6 +61,7 @@
 	% 1. LaTeX setzen (findet NOTWENDIGE Verweise und speichert diese in .aux-Datei)
 	% 2. BibTeX setzen (generiert .bbl-Datei)
 	% 3. LaTeX erneut setzen (bindet .bbl-Datei in das Dokument ein)
+	% 4. LaTeX ein weiteres mal setzen
 	\nocite{*}
 	\bibliography{Quellen}
 	\bibliographystyle{alphadin}
@@ -61,8 +73,7 @@
 
 	% Erklärung
 	\section*{Erklärung}
-	Ich erkläre, dass ich die Facharbeit ohne fremde Hilfe angefertigt und nur die im Literaturverzeichnis angeführten Quellen und Hilfsmittel benutzt habe.
-	\\
+	Ich erkläre, dass ich die Facharbeit ohne fremde Hilfe angefertigt und nur die im Literaturverzeichnis angeführten Quellen und Hilfsmittel benutzt habe.\\
 	\\
 	\\
 	\begin{minipage}{3cm}
