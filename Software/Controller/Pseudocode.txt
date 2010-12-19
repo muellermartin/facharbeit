@@ -1,0 +1,75 @@
+// Liest Werte aus Steuerungs-Programm mit virtuellem Joystick
+function vjoy() {
+	set x
+	set y
+}
+
+// Liest Sensor an Pan-Achse und berechnet Winkel
+function sensor_pan() {
+	set pan
+}
+
+// Liest Sensor an Tilt-Achse und berechnet Winkel
+function sensor_tilt() {
+	set tilt
+}
+
+// 
+function kalibrate() {
+	set min_tilt
+	set max_tilt
+	set min_pan
+	set max_pan
+}
+
+function left_pan(x) {
+	// Abruptes Bremsen?
+	//break_pan()
+
+	// H-Brücke
+	INPUT1 -> HIGH
+	INPUT2 -> LOW
+
+	ENABLE_A -> 
+}
+
+function right_pan(x) {
+	INPUT1 -> LOW
+	INPUT2 -> HIGH
+}
+
+function break_pan() {
+	INPUT1 -> HIGH
+	INPUT2 -> HIGH
+}
+
+function left_tilt(y) {
+}
+
+function right_tilt(y) {
+}
+
+function break_tilt(y) {
+}
+
+main() {
+	if(pan > max_pan || pan < min_pan) {
+		if(x < 0) {
+			pan_left(x)
+		}
+
+		elseif(x > 0) {
+			pan_right(x)
+		}
+	}
+
+	if(tilt > max_tilt || tilt < min_tilt) {
+		if(y < 0) {
+			tilt_left(x)
+		}
+
+		elseif(y > 0) {
+			tilt_right(x)
+		}
+	}
+}
