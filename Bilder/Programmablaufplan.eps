@@ -1,0 +1,862 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: graphviz version 2.26.3 (20100126.1600)
+%%Title: Software
+%%Pages: 1
+%%BoundingBox: 36 36 1022 588
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 1022 588
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 986 552 boxprim clip newpath
+1 1 set_scale 0 rotate 40 41 translate
+% cluster1
+gsave
+1 setlinewidth
+0 0 0 graphcolor
+newpath 8 66 moveto
+8 462 lineto
+970 462 lineto
+970 66 lineto
+closepath stroke
+grestore
+% sensor_pan
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 400 543 moveto
+320 543 lineto
+320 507 lineto
+400 507 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+328 519.9 moveto 64 (Sensor Pan) alignedtext
+grestore
+% controller
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 563 454 moveto
+409 454 lineto
+409 416 lineto
+563 416 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+455.5 437.4 moveto 61 (Controller) alignedtext
+0 0 0 nodecolor
+14 /Times-Roman set_font
+416.5 422.4 moveto 139 (\(Arduino Duemilanove\)) alignedtext
+grestore
+% sensor_pan->controller
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 385.5 506.79 moveto
+404.33 493.33 430.2 474.86 450.97 460.02 curveto
+stroke
+0 0 0 edgecolor
+newpath 453.13 462.78 moveto
+459.24 454.12 lineto
+449.06 457.08 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 453.13 462.78 moveto
+459.24 454.12 lineto
+449.06 457.08 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+430 474.9 moveto 20 (pan) alignedtext
+grestore
+% sensor_tilt
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 498 543 moveto
+418 543 lineto
+418 507 lineto
+498 507 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+426 519.9 moveto 64 (Sensor Tilt) alignedtext
+grestore
+% sensor_tilt->controller
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 463.67 506.79 moveto
+467.5 494.47 472.64 477.94 477.02 463.85 curveto
+stroke
+0 0 0 edgecolor
+newpath 480.42 464.71 moveto
+480.05 454.12 lineto
+473.74 462.63 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 480.42 464.71 moveto
+480.05 454.12 lineto
+473.74 462.63 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+473 474.9 moveto 17 (tilt) alignedtext
+grestore
+% inputdevice
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 608 544 moveto
+516 544 lineto
+516 506 lineto
+608 506 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+524 527.4 moveto 76 (Eingabegerät) alignedtext
+0 0 0 nodecolor
+14 /Times-Roman set_font
+525 512.4 moveto 74 (z.B. Joystick) alignedtext
+grestore
+% inputdevice->controller
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 540.82 505.66 moveto
+535.15 500.15 529.16 494 524 488 curveto
+517.2 480.1 510.38 471.03 504.44 462.65 curveto
+stroke
+0 0 0 edgecolor
+newpath 507.17 460.46 moveto
+498.59 454.25 lineto
+501.43 464.46 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 507.17 460.46 moveto
+498.59 454.25 lineto
+501.43 464.46 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+524 474.9 moveto 7 (x) alignedtext
+grestore
+% inputdevice->controller
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 552.88 505.79 moveto
+547.36 495.22 539.71 482.22 531 472 curveto
+527.81 468.25 524.2 464.59 520.45 461.12 curveto
+stroke
+0 0 0 edgecolor
+newpath 522.48 458.25 moveto
+512.65 454.3 lineto
+517.87 463.51 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 522.48 458.25 moveto
+512.65 454.3 lineto
+517.87 463.51 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+541 474.9 moveto 8 (y) alignedtext
+grestore
+% Kalibration
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+486 360 52.14 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+453.5 354.9 moveto 65 (Kalibration) alignedtext
+grestore
+% controller->Kalibration
+% x
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+397 286 27 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+393.5 280.9 moveto 7 (x) alignedtext
+grestore
+% Kalibration->x
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 465.8 343.21 moveto
+452.77 332.37 435.73 318.2 421.86 306.67 curveto
+stroke
+0 0 0 edgecolor
+newpath 424.05 303.94 moveto
+414.12 300.24 lineto
+419.57 309.32 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 424.05 303.94 moveto
+414.12 300.24 lineto
+419.57 309.32 lineto
+closepath stroke
+grestore
+% y
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+580 286 27 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+576 280.9 moveto 8 (y) alignedtext
+grestore
+% Kalibration->y
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 507.33 343.21 moveto
+521.28 332.23 539.57 317.83 554.32 306.22 curveto
+stroke
+0 0 0 edgecolor
+newpath 556.84 308.69 moveto
+562.53 299.75 lineto
+552.51 303.19 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 556.84 308.69 moveto
+562.53 299.75 lineto
+552.51 303.19 lineto
+closepath stroke
+grestore
+% pan > min_pan
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+243 198 65.14 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+200.5 192.9 moveto 85 (pan > min_pan) alignedtext
+grestore
+% x->pan > min_pan
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 376.23 274.13 moveto
+351.75 260.14 310.6 236.63 280.5 219.43 curveto
+stroke
+0 0 0 edgecolor
+newpath 281.96 216.23 moveto
+271.54 214.31 lineto
+278.49 222.31 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 281.96 216.23 moveto
+271.54 214.31 lineto
+278.49 222.31 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+334 236.9 moveto 20 (< 0) alignedtext
+grestore
+% pan < max_pan
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+397 198 65.8 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+354 192.9 moveto 86 (pan < max_pan) alignedtext
+grestore
+% x->pan < max_pan
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 397 267.77 moveto
+397 255.85 397 240.04 397 226.48 curveto
+stroke
+0 0 0 edgecolor
+newpath 400.5 226.21 moveto
+397 216.21 lineto
+393.5 226.21 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 400.5 226.21 moveto
+397 216.21 lineto
+393.5 226.21 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+397 236.9 moveto 21 (> 0) alignedtext
+grestore
+% tilt > min_tilt
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+580 198 61.24 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+540.5 192.9 moveto 79 (tilt > min_tilt) alignedtext
+grestore
+% y->tilt > min_tilt
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 580 267.77 moveto
+580 255.85 580 240.04 580 226.48 curveto
+stroke
+0 0 0 edgecolor
+newpath 583.5 226.21 moveto
+580 216.21 lineto
+576.5 226.21 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 583.5 226.21 moveto
+580 216.21 lineto
+576.5 226.21 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+580 236.9 moveto 20 (< 0) alignedtext
+grestore
+% tilt < max_tilt
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+725 198 61.9 18 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+685 192.9 moveto 80 (tilt < max_tilt) alignedtext
+grestore
+% y->tilt < max_tilt
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 600.16 273.76 moveto
+623.19 259.79 661.31 236.65 689.38 219.62 curveto
+stroke
+0 0 0 edgecolor
+newpath 691.38 222.5 moveto
+698.11 214.32 lineto
+687.74 216.52 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 691.38 222.5 moveto
+698.11 214.32 lineto
+687.74 216.52 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+665 236.9 moveto 21 (> 0) alignedtext
+grestore
+% Motor Pan\ndreht sich links
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+89 101 73.04 26.87 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+58.5 103.4 moveto 61 (Motor Pan) alignedtext
+0 0 0 nodecolor
+14 /Times-Roman set_font
+45 88.4 moveto 88 (dreht sich links) alignedtext
+grestore
+% pan > min_pan->Motor Pan\ndreht sich links
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 216.53 181.33 moveto
+194.12 167.21 161.49 146.66 134.85 129.88 curveto
+stroke
+0 0 0 edgecolor
+newpath 136.4 126.72 moveto
+126.07 124.35 lineto
+132.67 132.64 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 136.4 126.72 moveto
+126.07 124.35 lineto
+132.67 132.64 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+185 148.9 moveto 28 (wahr) alignedtext
+grestore
+% Motor Pan\nbleibt stehen
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+243 101 62.93 26.87 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+212.5 103.4 moveto 61 (Motor Pan) alignedtext
+0 0 0 nodecolor
+14 /Times-Roman set_font
+206.5 88.4 moveto 73 (bleibt stehen) alignedtext
+grestore
+% pan > min_pan->Motor Pan\nbleibt stehen
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 243 179.76 moveto
+243 168.1 243 152.55 243 138.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 246.5 138.33 moveto
+243 128.33 lineto
+239.5 138.33 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 246.5 138.33 moveto
+243 128.33 lineto
+239.5 138.33 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+243 148.9 moveto 34 (falsch) alignedtext
+grestore
+% Motor Pan\ndreht sich rechts
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+402 101 77.78 26.87 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+371.5 103.4 moveto 61 (Motor Pan) alignedtext
+0 0 0 nodecolor
+14 /Times-Roman set_font
+355 88.4 moveto 94 (dreht sich rechts) alignedtext
+grestore
+% pan < max_pan->Motor Pan\ndreht sich rechts
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 397.94 179.76 moveto
+398.54 168.1 399.34 152.55 400.07 138.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 403.57 138.5 moveto
+400.59 128.33 lineto
+396.58 138.14 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 403.57 138.5 moveto
+400.59 128.33 lineto
+396.58 138.14 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+400 148.9 moveto 28 (wahr) alignedtext
+grestore
+% pan < max_pan->Motor Pan\nbleibt stehen
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 370.53 181.33 moveto
+347.63 166.91 314.08 145.77 287.13 128.8 curveto
+stroke
+0 0 0 edgecolor
+newpath 288.96 125.81 moveto
+278.63 123.44 lineto
+285.23 131.74 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 288.96 125.81 moveto
+278.63 123.44 lineto
+285.23 131.74 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+339 148.9 moveto 34 (falsch) alignedtext
+grestore
+% Motorsteuerung
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 557 36 moveto
+451 36 lineto
+451 0 lineto
+557 0 lineto
+closepath stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+458.5 12.9 moveto 91 (Motorsteuerung) alignedtext
+grestore
+% Motor Pan\ndreht sich rechts->Motorsteuerung
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 444.74 66.22 moveto
+454.6 58.2 464.87 49.84 474.05 42.37 curveto
+stroke
+0 0 0 edgecolor
+newpath 476.3 45.05 moveto
+481.85 36.03 lineto
+471.88 39.62 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 476.3 45.05 moveto
+481.85 36.03 lineto
+471.88 39.62 lineto
+closepath stroke
+grestore
+% Motor Tilt\ndreht sich links
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+571 101 73.04 26.87 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+540 103.4 moveto 62 (Motor Tilt) alignedtext
+0 0 0 nodecolor
+14 /Times-Roman set_font
+527 88.4 moveto 88 (dreht sich links) alignedtext
+grestore
+% tilt > min_tilt->Motor Tilt\ndreht sich links
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 578.31 179.76 moveto
+577.23 168.1 575.78 152.55 574.47 138.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 577.95 137.97 moveto
+573.54 128.33 lineto
+570.98 138.62 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 577.95 137.97 moveto
+573.54 128.33 lineto
+570.98 138.62 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+576 148.9 moveto 28 (wahr) alignedtext
+grestore
+% Motor Tilt\nbleibt stehen
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+725 101 62.93 26.87 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+694 103.4 moveto 62 (Motor Tilt) alignedtext
+0 0 0 nodecolor
+14 /Times-Roman set_font
+688.5 88.4 moveto 73 (bleibt stehen) alignedtext
+grestore
+% tilt > min_tilt->Motor Tilt\nbleibt stehen
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 604.93 181.33 moveto
+626.15 167.13 657.11 146.42 682.28 129.58 curveto
+stroke
+0 0 0 edgecolor
+newpath 684.54 132.27 moveto
+690.91 123.8 lineto
+680.65 126.46 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 684.54 132.27 moveto
+690.91 123.8 lineto
+680.65 126.46 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+656 148.9 moveto 34 (falsch) alignedtext
+grestore
+% Motor Tilt\ndreht sich rechts
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+884 101 77.78 26.87 ellipse_path stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+853 103.4 moveto 62 (Motor Tilt) alignedtext
+0 0 0 nodecolor
+14 /Times-Roman set_font
+837 88.4 moveto 94 (dreht sich rechts) alignedtext
+grestore
+% tilt < max_tilt->Motor Tilt\ndreht sich rechts
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 751.97 181.55 moveto
+775.08 167.45 808.9 146.82 836.52 129.96 curveto
+stroke
+0 0 0 edgecolor
+newpath 838.54 132.83 moveto
+845.25 124.64 lineto
+834.89 126.86 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 838.54 132.83 moveto
+845.25 124.64 lineto
+834.89 126.86 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+809 148.9 moveto 28 (wahr) alignedtext
+grestore
+% tilt < max_tilt->Motor Tilt\nbleibt stehen
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 725 179.76 moveto
+725 168.1 725 152.55 725 138.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 728.5 138.33 moveto
+725 128.33 lineto
+721.5 138.33 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 728.5 138.33 moveto
+725 128.33 lineto
+721.5 138.33 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+725 148.9 moveto 34 (falsch) alignedtext
+grestore
+% Motor Tilt\ndreht sich links->Motorsteuerung
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 542.92 66.22 moveto
+536.93 58.8 530.71 51.08 525.03 44.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 527.71 41.8 moveto
+518.7 36.21 lineto
+522.26 46.19 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 527.71 41.8 moveto
+518.7 36.21 lineto
+522.26 46.19 lineto
+closepath stroke
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+end
+restore
+%%EOF

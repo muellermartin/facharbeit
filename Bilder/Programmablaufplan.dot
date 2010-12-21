@@ -1,0 +1,49 @@
+digraph Software {
+	compound = true;
+
+	node [shape = box];
+	sensor_pan [label="Sensor Pan"]; 
+	sensor_tilt [label="Sensor Tilt"]; 
+	inputdevice [label="Eingabegerät\nz.B. Joystick"];
+
+	subgraph cluster1 {
+		controller [label="Controller\n(Arduino Duemilanove)"];
+		node [shape=ellipse];
+		Kalibration;
+		x;
+		y;
+		"pan > min_pan";
+		"pan < max_pan";
+		"Motor Pan\ndreht sich links";
+		"Motor Pan\ndreht sich rechts";
+		"Motor Pan\nbleibt stehen";
+		"tilt > min_tilt";
+		"tilt < max_tilt";
+		"Motor Tilt\ndreht sich links";
+		"Motor Tilt\ndreht sich rechts";
+		"Motor Tilt\nbleibt stehen";
+	}
+
+	sensor_pan -> controller [label=pan];
+	sensor_tilt -> controller [label=tilt];
+	inputdevice -> controller [label=x];
+	inputdevice -> controller [label=y];
+	controller -> Kalibration [style=invis];
+	Kalibration -> {x y};
+	x -> "pan > min_pan" [label="< 0"];
+	"pan > min_pan" -> "Motor Pan\ndreht sich links" [label=wahr];
+	"pan > min_pan" -> "Motor Pan\nbleibt stehen" [label=falsch];
+	x -> "pan < max_pan" [label="> 0"];
+	"pan < max_pan" -> "Motor Pan\ndreht sich rechts" [label=wahr];
+	"pan < max_pan" -> "Motor Pan\nbleibt stehen" [label=falsch];
+
+	y -> "tilt > min_tilt" [label="< 0"];
+	"tilt > min_tilt" -> "Motor Tilt\ndreht sich links" [label=wahr];
+	"tilt > min_tilt" -> "Motor Tilt\nbleibt stehen" [label=falsch];
+	y -> "tilt < max_tilt" [label="> 0"];
+	"tilt < max_tilt" -> "Motor Tilt\ndreht sich rechts" [label=wahr];
+	"tilt < max_tilt" -> "Motor Tilt\nbleibt stehen" [label=falsch];
+
+	"Motor Tilt\ndreht sich links" -> "Motorsteuerung" [ltail=cluster1];
+	"Motor Pan\ndreht sich rechts" -> "Motorsteuerung" [ltail=cluster1];
+}
