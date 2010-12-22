@@ -1,21 +1,21 @@
-// Liest Werte aus Steuerungs-Programm mit virtuellem Joystick
+// Werte des virtuellem Joysticks aus Steuerungsprogramm auslesen
 function vjoy() {
 	set x
 	set y
 }
 
-// Liest Sensor an Pan-Achse und berechnet Winkel
+// Sensor an Pan-Achse auslesen und Winkel berechnen
 function sensor_pan() {
 	set pan
 }
 
-// Liest Sensor an Tilt-Achse und berechnet Winkel
+// Sensor an Tilt-Achse auslesen und Winkel berechnen
 function sensor_tilt() {
 	set tilt
 }
 
 // 
-function kalibrate() {
+function calibrate() {
 	set min_tilt
 	set max_tilt
 	set min_pan
@@ -53,7 +53,7 @@ function break_tilt(y) {
 }
 
 main() {
-	if(pan > max_pan || pan < min_pan) {
+	if(pan > min_pan && pan < max_pan) {
 		if(x < 0) {
 			pan_left(x)
 		}
@@ -63,7 +63,7 @@ main() {
 		}
 	}
 
-	if(tilt > max_tilt || tilt < min_tilt) {
+	if(tilt > min_tilt && tilt < max_tilt) {
 		if(y < 0) {
 			tilt_left(x)
 		}
