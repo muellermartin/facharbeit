@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+	<title>CAAD Embedded hosted by ETH Zürich - TimerDcMotorBackground </title>
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<!--HTMLHeader--><style type="text/css"><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name="robots" content="index,follow">
+
+	<link rel="stylesheet" href="TimerDcMotorBackground-Dateien/pmwiki.css" type="text/css">
+<style type="text/css"><!--
+#header {background-color: #134A86;}
+a:link, a:visited, #menu ul li .here a, #menu ul li .here a:hover {color: #134A86;}
+--></style>
+<!--[if lte IE 6]>
+<style type="text/css">
+img, #logo, #vis, #header, #ethlogo, #caadlogo { behavior: url("http://www.embedded.arch.ethz.ch/pub/skins/simpletab/iepngfix.htc"); }
+</style>
+<![endif]-->
+	
+</head><body><div id="page"><div id="suptitle"></div>
+<div id="header"><div id="vis"><a id="logo" href="http://www.embedded.arch.ethz.ch/" title="CAAD Embedded hosted by ETH Zürich"></a>
+<a id="ethlogo" href="http://www.ethz.ch/"></a><a id="caadlogo" href="http://www.caad.arch.ethz.ch/"></a>
+<div id="menu"><ul><li> <a class="wikilink" href="http://www.embedded.arch.ethz.ch/Home/Home">Home</a>
+</li><li> <a class="wikilink" href="http://www.embedded.arch.ethz.ch/Projects/Projects">Projects</a>
+</li><li> <span class="here">  <a class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/Examples">Examples</a></span>
+</li><li> <a class="wikilink" href="http://www.embedded.arch.ethz.ch/Practice/Practice">Practice</a>
+</li><li> <a class="wikilink" href="http://www.embedded.arch.ethz.ch/Download/Download">Download</a>
+</li></ul>
+</div>
+	</div></div>
+
+	<div id="tools">
+	    <a rel="nofollow" accesskey="e" href="http://www.embedded.arch.ethz.ch/Examples/TimerDcMotorBackground?action=edit"></a>
+	    <a rel="nofollow" accesskey="h" href="http://www.embedded.arch.ethz.ch/Examples/TimerDcMotorBackground?action=diff"></a>      
+	    <a rel="nofollow" accesskey="a" href="http://www.embedded.arch.ethz.ch/Examples/TimerDcMotorBackground?action=upload"></a>      
+	    <a rel="nofollow" accesskey="c" href="http://www.embedded.arch.ethz.ch/Examples/RecentChanges"></a>      
+	    <a rel="nofollow" accesskey="r" href="http://www.embedded.arch.ethz.ch/Site/AllRecentChanges%5D"></a>
+	    <a rel="nofollow" accesskey="l" href="http://www.embedded.arch.ethz.ch/Examples/SideBar?action=edit"></a>
+			<a rel="nofollow" accesskey="t" href="http://www.embedded.arch.ethz.ch/Site/TopBar?action=edit"></a>
+			<a rel="nofollow" accesskey="m" href="http://www.embedded.arch.ethz.ch/Site/TabMenu?action=edit"></a>
+			<a rel="nofollow" accesskey="f" href="http://www.embedded.arch.ethz.ch/Site/Footer?action=edit"></a>
+	</div>
+
+	<div id="content"><!--PageText-->
+<div id="wikitext">
+<p><a class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/Examples">Examples</a> - <a class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/HowTo">HowTo</a> - TimerDCMotorBackground
+</p>
+<div class="vspace"></div><h1>Timer DC-Motor Background</h1>
+<p>This Article is a collection of some Background Knowledge and some code-snippets i used for the <a target="_blank" class="urllink" href="http://www.embedded.arch.ethz.ch/Projects/EmbossingPrinter" title="" rel="nofollow">Embossing Printer</a>
+ Project and therefor mostly how to control a DC Motor. Additionally you
+ will find some informations and links concerning Timers/Counters, PWM 
+and working with you Micro-Controller at Bitlevel.
+<br clear="all">
+<br clear="all">
+</p><h2>Overview</h2>
+<p>To Handle the Power/Current of a strong ( &gt;40mA ) DC-Motor you will need a <a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Motor_controller" title="" rel="nofollow">Motordriver</a>, whose most important electronic component is a <a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/H-bridge" title="" rel="nofollow">H-Bridge</a>.
+ To control the speed of the motor the easiest way is to use the 
+PWM-Output Pins / analogWrite(). To get some feedback of the motors 
+position or speed a <a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Rotary_encoder" title="" rel="nofollow">encoder</a> will do a good job.
+<br clear="all">
+</p><h2>analogWrite and PWM</h2>
+<p>The Arduino Command analogWrite uses Pulse Width Modulation (<a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Pulse-width_modulation" title="" rel="nofollow">PWM</a>)
+ to simulate different Voltages. A PWM-Signal is continuously squarewave
+ switching between High and Low. The time slice of the Signal being High
+ compared to the Time of one Period is called Duty:
+</p><div><img src="TimerDcMotorBackground-Dateien/PWM_700px.jpg" alt="" title=""></div>
+<p>Example:<br>A 25% Duty with 5V Signal-Maximum will result in a mean Voltage of 1.25V.
+<br clear="all">
+<br clear="all">
+See also:<br><a target="_blank" class="urllink" href="http://www.arduino.cc/en/Reference/AnalogWrite" title="" rel="nofollow">http://www.arduino.cc/en/Reference/AnalogWrite</a><br><a target="_blank" class="urllink" href="http://arduino.cc/en/Tutorial/PWM" title="" rel="nofollow">http://arduino.cc/en/Tutorial/PWM</a><br><br clear="all">
+<br clear="all">
+</p><h2>PWM-Background: Timers</h2>
+<p>Of course it is possible to implement a Software-based PWM by continuously using digitalWrite() within the main loop <strong><a target="_blank" class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/SimpleSoftwarePWM">(see code example)</a></strong>.
+ But it will be hard, to do this with precise timing, insensitive to 
+interrupts, and without consuming to much CPU-Power, or occupy the CPU 
+by <a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Busy_waiting" title="" rel="nofollow">busy waiting</a>.<br>Therefore
+ the Arduino / ATMega Microcontroller has at least 3 Timers / Counters  
+that can do this work independent of the AVR-CPU. Basically you can 
+imagine those Counters similar to the second hand of a clock. They are 
+not counting continuously from 0 to 60, but from 0 to a predefined Value
+ ( eg 2^8- 1 = 255 or 2^16-1 = 65535 ). By modifying the Timer/Counter 
+Registers the Timers can have different behaviors too.
+<br clear="all">
+<br clear="all">
+The standard Arduino-Behavior is the PWM-Mode for Timer0 and the Phase 
+Corrected PWM-Mode for Timer1 and 2. This modes allow each timer to 
+control two PWM-pins, by switching the Pins at the beginning of each 
+counting-loop and at a given Value. ( for our Example a 25% Duty will 
+switch a Pin at 0 and 64, if the TOP-Value is 255).
+<br clear="all">
+<br clear="all">
+This behavior is defined in the <a target="_blank" class="urllink" href="http://code.google.com/p/arduino/source/browse/trunk/hardware/cores/arduino/wiring.c?r=565" title="" rel="nofollow">wiring.c</a> file that is part of the arduino-enviroment. The Timer-registers a set in the init() Function.
+<br clear="all">
+<br clear="all">
+The main source of information about the Timers is the Microcontrollers <a target="_blank" class="urllink" href="http://www.atmel.com/dyn/resources/prod_documents/doc2545.pdf" title="" rel="nofollow">datasheet</a>.<br>But
+ maybe you need this information combined with more software examples - 
+then you should have a look at this nice Article about 
+PWM-Background.(both links have same content):<br><a target="_blank" class="urllink" href="http://www.arcfn.com/2009/07/secrets-of-arduino-pwm.html" title="" rel="nofollow">secrets-of-arduino-pwm</a><br><a target="_blank" class="urllink" href="http://arduino.cc/en/Tutorial/SecretsOfArduinoPWM" title="" rel="nofollow">SecretsOfArduinoPWM</a>
+<br clear="all">
+<br clear="all">
+</p><h2>Bitwise Operations</h2>
+<p>If you want to change the Timer-Mode / behavior directly you should 
+have some basic knowledge about manipulating single bits within one 
+Byte. I uploaded some <strong><a target="_blank" class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/BitwiseOperations">code example</a></strong>.<br>See also the  <a target="_blank" class="urllink" href="http://arduino.cc/en/Reference/Extended" title="" rel="nofollow">Arduino reference</a>(bitwise operations) and also have a look at <a target="_blank" class="urllink" href="http://www.arduino.cc/playground/Code/BitMath" title="" rel="nofollow">Bit Math Tutorial</a>.<br>
+You also should not get confused by some macros like cbi(), sbi() or _BV(). Those Macros adress the <a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/C_preprocessor" title="" rel="nofollow">preprocessor</a> and their Definition is simalar to a function:
+<br clear="all">
+<br clear="all">
+</p><pre class="sourcecode"><font color="green">//from avr/sfr_defs.h in avr-libc:</font>
+#define _BV(bit) (1 &lt;&lt; (bit))
+<font color="green">//from some other source</font>
+#ifndef cbi
+#define cbi(sfr, bit) (_SFR_BYTE(sfr) &amp;= ~_BV(bit))
+#endif
+#ifndef sbi
+#define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+#endif
+</pre>
+<p><br clear="all">
+<br clear="all">
+<strong>cbi</strong> is similar to arduino <a target="_blank" class="urllink" href="http://arduino.cc/en/Reference/BitClear" title="" rel="nofollow">BitClear</a> function<br><strong>sbi</strong> is similar to arduino <a target="_blank" class="urllink" href="http://www.arduino.cc/en/Reference/BitSet" title="" rel="nofollow">BitSet</a> function<br><strong>_BV(x)</strong> is just creating a Byte by <a target="_blank" class="urllink" href="http://www.arduino.cc/en/Reference/Bitshift" title="" rel="nofollow">bitshift</a> of 1 by x positions
+<br clear="all">
+<br clear="all">
+If you even want some more detailed knowledge, there is a nice article 
+about what happens at the bit-level, when programming a simple blinking 
+Led: <br><a target="_blank" class="urllink" href="http://www.urbanhonking.com/ideasfordozens/2009/05/an_tour_of_the_arduino_interna.html" title="" rel="nofollow">arduino_interna</a>
+<br clear="all">
+<br clear="all">
+</p><h2>Addressing Registers</h2>
+<p>The most important source of information is the <a target="_blank" class="urllink" href="http://www.atmel.com/dyn/resources/prod_documents/doc2545.pdf" title="" rel="nofollow">datasheet</a> of your microcontroller. But if you read it the first time, you might get confused of some Register-addresses like <strong>OCRnx</strong> or <strong>TCNTn</strong>.
+ Please notice, that the lower-case letters are used as placeholders for
+ the timer-number n ( 0,1,2,..4) and the channel x (A,B,C). Though OCRnx
+ is meant to be OCR0A,OCR0B,OCR1A, ... and TCNTn is a placeholder for 
+TCNT0,TCNT1,.. \\- some arduino-microcontrollers only have 3 timers 
+(0..2) and two Channels (A,B)
+<br clear="all">
+<br clear="all">
+</p><h2>31 kHz PWM</h2>
+<p>If you control a DC-Motor - best using a H-Bridge and an additional 
+power supply / batterie, the PWM-Output will help you to control the 
+Speed of the Motor. A Motor has an inductive load and also behaves as a 
+dynamo while not being supported with electric power, but still moving. 
+This results in some unwanted effects, mainly heat production in the 
+H-Bridge and the Diodes and loss of torque. Therefore it is a good idea 
+too increase the PWM-Frequency up to 30kHz. This is also beyond the 
+audible range - so there will not be any humming.
+You can change the PWM-Frequency by changing the Timers prescaler to 
+different factors - see p 156 of the Microcontrollers  datasheet.<br>How to change the PWM of Timer2 to 31kHz you'll find in this <strong><a target="_blank" class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/PWMTimer231kHz">example code</a></strong>.<br>To see the result of the different prescaler, you need to analyze the PWM-Output with an Oscilloscope:
+</p>
+<table border="0"><tbody><tr><td><img src="TimerDcMotorBackground-Dateien/pwm_oscilloscope400px.jpg" alt="" title=""></td><td>You can see<br clear="all">a 50.0% Duty at Channel A<br clear="all">a 12.5% Duty at Channel B<br clear="all">and a frequency of 31.6kHz<br clear="all"><br clear="all">You can also see that the Mode is phase-corrected PWM, as both squarewaves share their symmetry-axis</td></tr>
+</tbody></table><p>some Background wikipedia-links:<br><a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Electromagnetic_induction" title="" rel="nofollow">Electromagnetic_induction</a><br><a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Dynamo" title="" rel="nofollow">Dynamo</a><br><a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Torque" title="" rel="nofollow">Torque</a><br><a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Oscilloscope" title="" rel="nofollow">Oscilloscope</a><br><br clear="all">
+<br clear="all">
+</p><h2>H-Bridge</h2>
+<div><img src="TimerDcMotorBackground-Dateien/h_bridge_current.jpg" alt="" title=""><br>this
+ diagramm shows, how to run a motor in both direction with 4 switches. 
+This is also the background idea of a H-Bridge, but the switches are not
+ mechanical, they are transistors of MOSFET</div>
+<p><br clear="all">
+<br clear="all">
+As already mentioned - to control a Motor that needs more than 40mA, you
+ need an additional power supply / battery. If you don't need to change 
+the direction of the motor, a single <a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Transistor" title="" rel="nofollow">transistor</a>, or better a <a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/Mosfet" title="" rel="nofollow">MOSFET</a> can do the job.<br>If you also want to control / change the motors direction you will need 4 MOSFETs or more common a single <a target="_blank" class="urllink" href="http://en.wikipedia.org/wiki/H-bridge" title="" rel="nofollow">H-Bridge</a>,
+ which includes them. A simple model for a Transistor or a MOSFET is a 
+Resistor, that changes from infinite to nearly 0 as soon as the Input 
+Voltage reaches a certain height / value ( the Input will be the Base of
+ the Transistor or the Gate of the MOSFET ) ( maybe a electronic 
+engineer will not like this explanation ).<br><br clear="all">
+A lot of Arduino projects use the Type <a target="_blank" class="urllink" href="http://www.st.com/stonline/books/pdf/docs/1773.pdf" title="" rel="nofollow">L298</a>
+ (up to 2A) that is quite cheap but does not use latest technology. 
+Therefore it dissipates some energy and gets quite hot. A better 
+alternative is <a target="_blank" class="urllink" href="http://www.st.com/stonline/books/pdf/docs/1328.pdf" title="" rel="nofollow">L293</a>, but this chip only handles 1A. A very strong ( 2 or even 5 A), but more expensive solution is <a target="_blank" class="urllink" href="http://www.st.com/stonline/books/pdf/docs/1373.pdf" title="" rel="nofollow">L6202</a> that is based on DMOS technology. This chip also produces very little heat.<br>A cooling element combined with heat-conductive paste and fixed with some drops of superglue is a good addition.
+<br clear="all">
+<br clear="all">
+</p><h2>Circuit</h2>
+<p>As not being a electronic engineer, i can not give precise 
+recommendations on the entire circuit implementing the H-Bridge. I 
+successfully used the right part of the circuit at p.12 of the <a target="_blank" class="urllink" href="http://www.st.com/stonline/books/pdf/docs/1373.pdf" title="" rel="nofollow">L6202-datasheet</a>.
+<br clear="all">
+<br clear="all">
+</p><h2>Rotary Encoder</h2>
+<div><img src="TimerDcMotorBackground-Dateien/IMG_3221_700px.jpg" alt="" title=""></div>
+<p><br clear="all">
+To query the motors speed and position i use an encoder wheel with 
+radial slots. The bars and the slots have the same dimension. The wheels
+ are cut on a laser out of 2 mm black cardboard. To make them more 
+stable i used resin to cover the outer edge/ring.\\To count the slots 
+that passed by i use Timer1 with the prescalar set to external clock. 
+You will find more information about this and some code snippets <strong><a target="_blank" class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/Photointerrupter">here</a></strong>
+<br clear="all">
+<br clear="all">
+<br clear="all">
+<br clear="all">
+</p><hr>
+<p>
+Article by 
+<a target="_blank" class="urllink" href="http://wiki.caad.arch.ethz.ch/Organisation/TomPawlofsky" title="" rel="nofollow">Tom Pawlofsky</a> Mai 2010
+<br clear="all">
+<br clear="all">
+contact<br>pawlofsky&#8211;AT-arch-DOT-ethz-DOT-ch<br>please feel free to email any comments, misstakes or improvements.
+<br clear="all">
+<br clear="all">
+</p><hr>
+<p>
+this page is linked to:<br clear="all">
+</p><div class="fpltemplate"><div class="vspace"></div><dl><dt><a class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/Examples">Examples</a> /</dt><dd>
+</dd><dt> </dt><dd><a class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/BitwiseOperations">BitwiseOperations</a>
+</dd><dt> </dt><dd><a class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/Photointerrupter">Photointerrupter</a>
+</dd><dt> </dt><dd><a class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/PWMTimer231kHz">PWMTimer231kHz</a>
+</dd><dt> </dt><dd><a class="wikilink" href="http://www.embedded.arch.ethz.ch/Examples/SimpleSoftwarePWM">SimpleSoftwarePWM</a>
+<div class="vspace"></div></dd><dt><a class="wikilink" href="http://www.embedded.arch.ethz.ch/Projects/Projects">Projects</a> /</dt><dd>
+</dd><dt> </dt><dd><a class="wikilink" href="http://www.embedded.arch.ethz.ch/Projects/EmbossingPrinter">EmbossingPrinter</a>
+</dd></dl>
+</div>
+</div>
+</div>
+	
+	<div class="clear"> </div>
+	<div id="footer">
+		<p>You are not logged in. <a class="urllink" href="http://www.embedded.arch.ethz.ch/Examples/TimerDcMotorBackground?action=login" title="" rel="nofollow">login</a>
+</p>
+
+		<!--HTMLFooter-->
+	</div>
+</div>
+
+
+</body></html>

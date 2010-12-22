@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+  <title>Physical Computing at ITP | Tutorials / Using a transistor to control high current loads with an Arduino </title>
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <link rel="stylesheet" href="HighCurrentLoads-Dateien/itp_pcomp.css" type="text/css">
+  <!--HTMLHeader--><style type="text/css"><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: small; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: small; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; 
+    width: 350px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.toc ol#tocid {
+	padding-top: 5px;
+	padding-bottom: 5px; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script>  <meta name="robots" content="index,follow">
+
+</head><body>
+
+<div id="container">
+<!--PageHeaderFmt-->
+	<div id="topheader">
+	  <div id="wikilogo"><a href="http://itp.nyu.edu/physcomp"><img src="HighCurrentLoads-Dateien/itp_pcomp_header.gif" alt="Physical Computing at ITP" border="0"></a></div>
+
+	  <div id="wikihead">
+	  <form action="http://itp.nyu.edu/physcomp">
+		<input name="n" value="Tutorials.HighCurrentLoads" type="hidden">
+		<input name="action" value="search" type="hidden">
+		<a href="http://itp.nyu.edu/physcomp/Site/Search">Search</a>:
+		<input name="q" class="inputbox searchbox" type="text">
+		<input class="inputbutton searchbutton" value="Go" type="submit"></form>
+	  </div>	
+		
+	</div>
+<!--/PageHeaderFmt-->
+  <table cellpadding="0" cellspacing="0" height="100%" width="100%"><tbody><tr>
+<!--PageLeftFmt-->
+      <td id="wikileft" height="100%" valign="top">
+        <p><strong><a class="wikilink" href="http://itp.nyu.edu/physcomp/Intro/HomePage">Intro to Physical Computing Syllabus</a></strong>
+</p>
+<p class="vspace"><strong>Research &amp; Learning</strong>
+</p><ul><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Tutorials/Tutorials">Tutorials &amp; Labs</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Notes/Notes">Links</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Parts/Parts">Parts</a>
+</li></ul><p class="vspace"><strong>Other Class pages</strong>
+</p><ul><li><a class="urllink" href="http://itp.nyu.edu/physcomp/sensors/Main/HomePage" rel="nofollow">Sensor Wiki</a>
+</li><li><a class="urllink" href="http://itp.nyu.edu/sustainability/" rel="nofollow">Sustainability Wiki</a>
+</li><li><a class="urllink" href="http://itp.nyu.edu/wearables/" rel="nofollow">Wearables</a>
+</li><li><a class="urllink" href="http://itp.nyu.edu/materials/info/index.html" rel="nofollow">Materials</a>
+</li><li><a class="urllink" href="http://itp.nyu.edu/nime" rel="nofollow">NIME</a>
+</li><li><a class="urllink" href="http://web.mac.com/er0sentha1/iWeb/NYUBAC/Syllabus.html" rel="nofollow">Basic Analog Circuits</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Classes/Classes">More Class Pages...</a>
+</li></ul><p class="vspace"><strong><a class="wikilink" href="http://itp.nyu.edu/physcomp/Main/HomePage">Shop Admin</a></strong>
+</p><ul><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Announcements/Announcements">Announcements</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Events/Events">Events</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/People/People">People</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Policy/Policy">Safety Information &amp; Shop Policies</a>
+<div class="vspace"></div></li><li><strong><a class="urllink" href="http://itp.nyu.edu/signup/day.php?area=1" rel="nofollow">Shop cleanup signup</a></strong>
+</li><li><strong><a class="urllink" href="mailto:itp.helpdesk@nyu.edu?subject=phys%20comp%20shop" rel="nofollow">Report a shop issue</a></strong>
+</li><li><strong><a class="wikilink" href="http://itp.nyu.edu/physcomp/Main/List">phys-comp mailing list</a></strong>
+</li></ul><p class="vspace"><a class="urllink" href="http://itp.nyu.edu/help" rel="nofollow">ITP Help Pages</a><br><a class="urllink" href="http://tigoe.net/pcomp" rel="nofollow">Tom's pcomp site</a><br><a class="urllink" href="http://itp.nyu.edu/%7Edbo3/physical/physical.html" rel="nofollow">DanO's pcomp site</a>
+</p>
+<div class="vspace"></div><hr>
+<div class="vspace"></div><ul><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Site/AllRecentChanges?action=rss">rss feed for this site</a>
+</li></ul><div class="vspace"></div>
+         
+      </td>
+<!--/PageLeftFmt-->
+      <td id="wikibody" height="100%" valign="top">
+<!--PageActionFmt-->
+        <!--<div id='wikicmds'><ul><li class='browse'><a accesskey=''  class='selflink' href='http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads'>View</a>
+</li><li class='edit'><a accesskey='e'  rel='nofollow'  class='wikilink' href='http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads?action=edit'>Edit</a>
+</li><li class='diff'><a accesskey='h'  rel='nofollow'  class='wikilink' href='http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads?action=diff'>History</a>
+</li><li class='print'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads?action=print'>Print</a>
+</li></ul>
+</div>-->
+<!--PageTitleFmt-->
+        <div id="wikititle">
+          <!--<div class='pagegroup'><a href='http://itp.nyu.edu/physcomp/Tutorials'>Tutorials</a> /</div>-->
+          <h1 class="pagetitle">Using a transistor to control high current loads with an Arduino</h1></div>
+<!--PageText-->
+<div id="wikitext">
+<p class="vspace">In this tutorial, you'll learn how to control a 
+high-current DC load such as a DC motor or an incandescent light from a 
+microcontroller.  
+</p>
+<div class="vspace"></div><div class="toc"><p><a name="toc" id="toc"></a><b>Table of Contents</b> (<a id="tocidtog" href="javascript:toggle('tocid');">hide</a>)</p><ol class="toc" id="tocid"><li>1.&#8194;<a href="#toc1">Parts</a></li><li>2.&#8194;<a href="#toc2">Prepare the breadboard</a></li><li>3.&#8194;<a href="#toc3">Add a potentiometer</a></li><li>4.&#8194;<a href="#toc4">Connect a transistor to the microcontroller</a><ol class="toc"><li>4.1&#8194;<a href="#toc5">Connect a motor and power supply</a></li><li>4.2&#8194;<a href="#toc6">Connect a lamp instead</a></li></ol></li><li>5.&#8194;<a href="#toc7">Program the microcontroller</a></li><li>6.&#8194;<a href="#toc8">Notes</a></li></ol></div>
+<div class="vspace"></div><h3><a name="toc1" id="toc1"></a>1.&#8194;  Parts</h3>
+<p>You will need the following parts for this tutorial.
+</p>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/breadboard.jpg" rel="nofollow"><img src="HighCurrentLoads-Dateien/breadboard.jpg" alt="Solderless breadboard" title="Solderless breadboard" width="100px"></a><br><span style="font-size: 83%;">Solderless breadboard</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/hookup_wire.jpg" rel="nofollow"><img src="HighCurrentLoads-Dateien/hookup_wire.jpg" alt="hookup wire" title="hookup wire" width="100px"></a><br><span style="font-size: 83%;">22-AWG hookup wire</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/arduino.jpg" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino.jpg" alt="Arduino module" title="Arduino module" width="100px"></a><br><span style="font-size: 83%;">Arduino Microcontroller <br>module</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/leds.jpg" rel="nofollow"><img src="HighCurrentLoads-Dateien/leds.jpg" alt="Light Emiting Diodes" title="Light Emiting Diodes" width="100px"></a><br><span style="font-size: 83%;">Light Emiting Diodes, LED </span></span></div>
+<div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/electrolytic_cap.JPG" rel="nofollow"><img src="HighCurrentLoads-Dateien/electrolytic_cap.JPG" alt="electrolytic capacitor" title="electrolytic capacitor" width="100px"></a><br><span style="font-size: 83%;">10uF electrolytic capacitor</span></span></div>
+<p class="vspace"><br clear="all">
+</p>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/resistors.jpg" rel="nofollow"><img src="HighCurrentLoads-Dateien/resistors.jpg" alt="resistors" title="resistors" width="100px"></a><br><span style="font-size: 83%;">10Kohm resistors</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/potentiometer.jpg" rel="nofollow"><img src="HighCurrentLoads-Dateien/potentiometer.jpg" alt="potentiometer" title="potentiometer" width="90px"></a><br><span style="font-size: 83%;">10Kohm potentiometer</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/1N4004_diodes.JPG" rel="nofollow"><img src="HighCurrentLoads-Dateien/1N4004_diodes.JPG" alt="Power diodes" title="Power diodes" width="100px"></a><br><span style="font-size: 83%;">power diodes <br>(for DC Motor version only)</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/dc_power_supply.JPG" rel="nofollow"><img src="HighCurrentLoads-Dateien/dc_power_supply.JPG" alt="DC power supply" title="DC power supply" width="100px"></a><br><span style="font-size: 83%;">DC power supply</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/tip120_transistor.JPG" rel="nofollow"><img src="HighCurrentLoads-Dateien/tip120_transistor.JPG" alt="TIP120 transistor" title="TIP120 transistor" width="100px"></a><br><span style="font-size: 83%;"><span class="wikiword">TIP120</span> transistor</span></span></div>
+<p class="vspace"><br clear="all">
+</p>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/dc_motor.JPG" rel="nofollow"><img src="HighCurrentLoads-Dateien/dc_motor.JPG" alt="DC Motor" title="DC Motor" width="100px"></a><br><span style="font-size: 83%;">DC Motor</span></span></div>
+<p class="vspace">- or -
+</p>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/lamp_holder.JPG" rel="nofollow"><img src="HighCurrentLoads-Dateien/lamp_holder.JPG" alt="Incandescent lamp and socket" title="Incandescent lamp and socket" width="100px"></a><br><span style="font-size: 83%;">Incandescent lamp and socket</span></span></div>
+<p class="vspace"><br clear="all">
+</p>
+<div class="vspace"></div><h3><a name="toc2" id="toc2"></a>2.&#8194;  Prepare the breadboard</h3>
+<p>Conect power and ground on the breadboard to power and ground from 
+the microcontroller. On the Arduino module, use the 5V and any of the 
+ground connections:
+</p>
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_bb.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino_bb.png" alt="" title="" align="top" height="200"></a><br><span style="font-size: 83%;">click the image to enlarge</span></div>
+<div class="vspace"></div><h3><a name="toc3" id="toc3"></a>3.&#8194;  Add a potentiometer</h3>
+<p>Connect a potentiometer to analog in pin 0 of the module. You'll use 
+this later to control the output, whether it's a motor or a light.
+</p>
+<table><tbody><tr><td valign="top">
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_pot_schem.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino_pot_schem.png" alt="" title="" height="300px"></a><br><span style="font-size: 83%;">click the image to enlarge</span></div>
+</td><td valign="top">
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_bb_pot.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino_bb_pot.png" alt="" title="" height="200px"></a><br><span style="font-size: 83%;">click the image to enlarge</span></div>
+<div class="vspace"></div></td></tr></tbody></table><!---->
+<div class="vspace"></div><h3><a name="toc4" id="toc4"></a>4.&#8194;  Connect a transistor to the microcontroller</h3>
+<p>The transistor allows you to control a circuit that's carrying higher
+ current and voltage from the microcontroller.  It acts as an electronic
+ switch.  The one you're using for this lab is an NPN-type transistor 
+called a <span class="wikiword">TIP120</span>. The datasheet for it can be found <a class="urllink" href="http://www.onsemi.com/pub/Collateral/TIP120-D.PDF" rel="nofollow">here</a>.
+ It's designed for switching high-current loads. It has three 
+connections, the base, the collector, and the emitter.  The base is 
+connected to the microcontroller's output. The high-current load (i.e. 
+the motor or light) is attached to its power source, and then to the 
+collector of the transistor.  The emitter of the transistor is connected
+ to ground.
+</p>
+<div class="vspace"></div><div><img src="HighCurrentLoads-Dateien/tip120_pinout.png" alt="" title=""><br>Pinout of a TIP-120 transistor, from left to right: base, collector, emitter.</div>
+<div class="vspace"></div><div><img src="HighCurrentLoads-Dateien/npntransistor.gif" alt="" title=""><br></div>
+<p>Note: you can also use an <span class="wikiword">IRF510</span> or <span class="wikiword">IRF520</span> MOSFET transistor for this.  They have the same pin configuration as the <span class="wikiword">TIP120</span>, and perform similarly.  They can handle more amperage and voltage, but are more sensitive to static electricity damage.
+</p>
+<p class="vspace"><br clear="all">
+The schematic symbol of an NPN transistor where B is the base, C is the collector, and E is the emitter.
+</p>
+<p class="vspace">Connect the base to an output pin of the microcontroller, and the emitter to ground like so:
+</p>
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_bb_pot_transistor.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino_bb_pot_transistor.png" alt="" title="" height="200"></a><br><span style="font-size: 83%;">click the image to enlarge</span></div>
+<div class="vspace"></div><h4><a name="toc5" id="toc5"></a>4.1&#8194;  Connect a motor and power supply</h4>
+<p>Attach a DC motor to the collector of the transistor.   Most motors 
+will require more amperage than the microcontroller can supply, so you 
+will need to add a separate power supply as well. If your motor runs on 
+around 9V, you could use a 9V battery. A 5V motor might run on 4 AA 
+batteries. a 12V battery may need a 12V wall wart, or a 12V battery. The
+ ground of the motor power supply should connect to the ground of the 
+microcontroller, on the breadboard.
+</p>
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_bb_pot_transistor_motor2.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino_bb_pot_transistor_motor2.png" alt="" title="" height="200"></a><br><span style="font-size: 83%;">click the image to enlarge</span></div>
+<p class="vspace"><span class="wikiword">FInally</span>, add diode in 
+parallel with the collector and emitter of the transistor, pointing away
+ from ground. The diode to protects the transistor from back voltage 
+generated when the motor shuts off, or if the motor is turned in the 
+reverse direction. 
+</p>
+<div class="vspace"></div>
+<table><tbody><tr><td valign="top">
+<div> <a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/motor_lab_schem.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/motor_lab_schem.png" alt="" title="" height="300px"></a></div>
+<p><span style="font-size: 83%;">Note: the schematic symbol for the transistor here is actually<br> for an <span class="wikiword">IRF510</span> MOSFET.  But it can be replaced with a <span class="wikiword">TIP120</span></span>
+<span style="font-size: 83%;">click the image to enlarge</span>
+</p></td><td valign="top">
+<div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_bb_pot_transistor_motor_diode.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino_bb_pot_transistor_motor_diode.png" alt="" title="" height="200"></a><br><span style="font-size: 83%;">click the image to enlarge</span></div>
+</td></tr></tbody></table><!---->
+<p class="vspace">Be sure to add the diode to your circuit correctly. 
+The silver band on the diode denotes the cathode which is the tip of the
+ arrow in the schematic, like so:  <span class="alt diode and diode schematic"><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/diode.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/diode.png" alt="" title="" height="120"></a> | <span style="font-size: 83%;">click the image to enlarge</span>.</span>
+</p>
+<p class="vspace">This circuit assumes you're using a 12V motor.  If 
+your motor requires a different voltage, make sure to use a power supply
+ that's appropriate.  Connect the ground of the motor's supply to the 
+ground of your microcontroller circuit, though, or the circuit won't 
+work properly.
+</p>
+<div class="vspace"></div><h4><a name="toc6" id="toc6"></a>4.2&#8194;  Connect a lamp instead</h4>
+<p>You could also attach a lamp using a transistor.  Like the motor, the
+ lamp circuit below assumes a 12V lamp.  Change your power supply 
+accordingly if you're using a different lamp.  In the lamp circuit, the 
+protection diode is not needed, since there's no way for the polarity to
+ get reversed in this circuit:
+</p>
+<div class="vspace"></div>
+<table><tbody><tr><td valign="top">
+<div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_transistor_lamp_schem.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino_transistor_lamp_schem.png" alt="" title="" width="400px"></a><br><span style="font-size: 83%;">click the image to enlarge</span></div>
+</td><td valign="top">
+<div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_transistor_lamp.png" rel="nofollow"><img src="HighCurrentLoads-Dateien/arduino_transistor_lamp.png" alt="" title="" width="300px"></a><br><span style="font-size: 83%;">click the image to enlarge</span></div>
+</td></tr></tbody></table><!---->
+<div class="vspace"></div><h3><a name="toc7" id="toc7"></a>5.&#8194;  Program the microcontroller</h3>
+<p>Here's a quick program to test the circuit:
+</p><div class="code">
+<div class="vspace"></div><pre> const <span style="color: rgb(204, 102, 0);">int</span> transistorPin = 9;    <span style="color: rgb(126, 126, 126);">// connected to the base of the transistor</span>
+
+ <span style="color: rgb(204, 102, 0);">void</span> <span style="color: rgb(204, 102, 0);"><strong>setup</strong></span>() {
+   <span style="color: rgb(126, 126, 126);">// set  the transistor pin as output:</span>
+   <span style="color: rgb(204, 102, 0);">pinMode</span>(transistorPin, <span style="color: rgb(0, 102, 153);">OUTPUT</span>);
+ }
+
+ <span style="color: rgb(204, 102, 0);">void</span> <span style="color: rgb(204, 102, 0);"><strong>loop</strong></span>() {
+   <span style="color: rgb(204, 102, 0);">digitalWrite</span>(transistorPin, <span style="color: rgb(0, 102, 153);">HIGH</span>);
+   <span style="color: rgb(204, 102, 0);">delay</span>(1000);
+   <span style="color: rgb(204, 102, 0);">digitalWrite</span>(transistorPin, <span style="color: rgb(0, 102, 153);">LOW</span>);
+   <span style="color: rgb(204, 102, 0);">delay</span>(1000);
+ }
+</pre><div class="vspace"></div></div>
+<p class="vspace">Now that you see it working, try changing the speed of
+ the motor or the intensity of the lamp using the potentiometer. Try 
+this code:
+</p><div class="code">
+<div class="vspace"></div><pre> const <span style="color: rgb(204, 102, 0);">int</span> potPin = 0;           <span style="color: rgb(126, 126, 126);">// Analog in 0 connected to the potentiometer</span>
+ const <span style="color: rgb(204, 102, 0);">int</span> transistorPin = 9;    <span style="color: rgb(126, 126, 126);">// connected to the base of the transistor</span>
+ <span style="color: rgb(204, 102, 0);">int</span> potValue = 0;               <span style="color: rgb(126, 126, 126);">// value returned from the potentiometer</span>
+
+ <span style="color: rgb(204, 102, 0);">void</span> <span style="color: rgb(204, 102, 0);"><strong>setup</strong></span>() {
+   <span style="color: rgb(126, 126, 126);">// set  the transistor pin as output:</span>
+   <span style="color: rgb(204, 102, 0);">pinMode</span>(transistorPin, <span style="color: rgb(0, 102, 153);">OUTPUT</span>);
+ }
+
+ <span style="color: rgb(204, 102, 0);">void</span> <span style="color: rgb(204, 102, 0);"><strong>loop</strong></span>() {
+   <span style="color: rgb(126, 126, 126);">// read the potentiometer, convert it to 0 - 255:</span>
+   potValue = <span style="color: rgb(204, 102, 0);">analogRead</span>(potPin) / 4;
+   <span style="color: rgb(126, 126, 126);">// use that to control the transistor:</span>
+   <span style="color: rgb(204, 102, 0);">analogWrite</span>(9, potValue);
+ }
+</pre><div class="vspace"></div></div>
+<div class="vspace"></div><h3><a name="toc8" id="toc8"></a>6.&#8194;  Notes</h3>
+<p><strong>For the motor users:</strong><br>A motor controlled like this
+ can only be turned in one direction. To be able to reverse the 
+direction of the motor, an H-bridge circuit is required. For more on 
+controlling DC motors with H-bridges, see the <a class="wikilink" href="http://itp.nyu.edu/physcomp/Labs/DCMotorControl">DC Motor Control lab</a>
+</p>
+</div>
+
+      </td>
+    </tr></tbody></table>
+<!--PageFooterFmt-->
+  <div id="wikifoot">  
+   <table cellpadding="0" cellspacing="0" height="100%" width="100%"><tbody><tr>
+   	<td width="5">&nbsp;</td>
+	<td class="footnav" valign="middle">
+      <a rel="nofollow" href="http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads?action=edit">Edit</a> |
+      <a rel="nofollow" href="http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads?action=view">View</a> |          
+      <a rel="nofollow" href="http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads?action=diff">History</a> |
+      <a rel="nofollow" href="http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads?action=print" target="_blank">Print</a> |
+      <a href="http://itp.nyu.edu/physcomp/Tutorials/RecentChanges">Recent Changes</a> |
+      <a href="http://itp.nyu.edu/physcomp/Site/Search">Search</a>
+	</td><td>    	
+    </td><td class="lastmod" align="right" valign="middle">Page last modified on January 09, 2010, at 12:25 PM</td>
+   	<td width="5">&nbsp;</td>    	
+   </tr></tbody></table> 
+  </div> <!--HTMLFooter-->
+</div>
+
+</body></html>

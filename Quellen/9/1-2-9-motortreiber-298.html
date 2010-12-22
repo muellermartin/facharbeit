@@ -1,0 +1,325 @@
+<!DOCTYPE ht PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+
+
+
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title>Strippenstrolch - Motortreiber L 298</title>
+  
+  <meta name="author" content="Stephan Mischnick">
+  <style type="text/css">
+<!--
+a:hover { text-decoration:undeline; color:#FF2121; 
+-->
+  </style>
+  <link rel="shortcut icon" href="http://www.strippenstrolch.de/strolch.ico" type="image/x-icon"></head><body style="direction: ltr; color: rgb(0, 102, 0); background-color: rgb(255, 255, 255); background-image: url(&quot;grafiken/higru.jpg&quot;);" alink="#000099" link="#000099" vlink="#666666">
+<div style="font-family: Arial;" align="center">
+<center>
+<table style="width: 900px; background-color: rgb(255, 255, 239);" border="0" cellpadding="8" cellspacing="0">
+  <tbody>
+    <tr align="center">
+      <td width:="" 780px="" valign="top"><a name="_oben"><br>
+      <iframe src="1-2-9-motortreiber-298-Dateien/kopf.html" frameborder="0" height="201" scrolling="no" width="100%"></iframe> <br>
+      </a><font face="Arial"><a href="http://www.strippenstrolch.de/menue-1.html"><span style="text-decoration: underline;">Zurück
+zum Menü 1</span></a></font>
+      <hr size="2" width="100%">
+      <div style="text-align: center;"><big><big><big>1.2.9
+Motortreiber L298</big></big></big><br>
+      <br>
+      <small>Erstellt: ab Frühjahr 2005</small><br>
+      <br>
+      <hr style="width: 100%; height: 2px;"> </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: justify;" valign="top"><br>
+Viele Leser werden nicht gerade von
+den Polwendeschaltungen mit Relais
+begeistert sein. <br>
+      <br>
+Vielleicht wollt Ihr ja den Gleichstrommotor mit <span style="font-weight: bold;">TTL-Signalen</span>
+steuern und habt dann Probleme, umständlich die Relais
+ansteuern zu müssen. Zwar ginge das auch noch recht einfach,
+aber die Schaltung wird dann doch ein wenig groß.<br style="color: rgb(0, 102, 0);">
+      <br style="color: rgb(0, 102, 0);">
+Deshalb erkläre ich hier nun, wie man bis zu 2
+Gleichstrommotoren mit einem <span style="font-weight: bold;">L
+298</span> ansteuern kann.<br style="color: rgb(0, 102, 0);">
+      <br style="color: rgb(0, 102, 0);">
+Zunächst
+wollen wir einmal schauen, wie man überhaupt einen Motor in
+beide
+Richtungen laufen lassen und ihn auch stoppen kann.<br>
+      <br style="color: rgb(0, 102, 0);">
+Dazu schauen wir uns einmal die folgende Grafik an:<br>
+      <br>
+      <img style="width: 262px; height: 289px; float: left;" alt="" title="H - Brücke" src="1-2-9-motortreiber-298-Dateien/skizze-h-bruecke.GIF" hspace="50" vspace="8"><br>
+Wir erkennen leicht,
+dass man den Motor mit den Schaltern S1 und S4
+vorwärts laufen lassen kann und mit den Schaltern S3 und S2
+rückwärts.<br style="color: rgb(51, 102, 255);">
+      <br>
+Wenn nun aber der Motor gerade läuft und wir einfach die
+Schalter öffnen, so wird er natürlich langsam
+auslaufen und dann stehenbleiben.<br style="color: rgb(51, 102, 255);">
+      <br>
+Wenn wir nun aber den Motor sehr schnell stoppen wollen, so
+schließen wir ihn kurz. Das
+geschieht entweder über die Schalterkombination <span style="font-weight: bold;">S1 und S3</span> oder <span style="font-weight: bold;">S2 und
+S4</span>. Bei beiden Kombinationen wird der Motor kurzgeschlossen.
+Er bleibt dann sehr schnell stehen, da seine induktive
+Energie gut abgebaut wird. <br>
+      <br>
+Genau diese ganzen Sachen kann auch unser L298 leisten, allerdings mit
+einer TTL-Ansteuerung.<br style="color: rgb(51, 102, 255);">
+      <br>
+      <br>
+      <br>
+Zunächst werfen wir mal einen Blick auf das Gehäuse
+des L298:<br style="color: rgb(0, 102, 0);">
+      <br style="color: rgb(0, 102, 0);">
+      <div style="text-align: center;"><img style="width: 467px; height: 331px;" alt="" title="L 298 - Multiwatt 15" src="1-2-9-motortreiber-298-Dateien/gehaeuse-L298.GIF"><br>
+      <br>
+      <br style="color: rgb(0, 102, 0);">
+      </div>
+      <br style="color: rgb(0, 102, 0);">
+Dies ist die Ausführung in einem Multiwatt-15-Gehäuse, bitte
+bei der Bestellung darauf achten, da es das IC in mehreren
+verschiedenen Gehäuseformen zu kaufen gibt.<br>
+      <div style="text-align: center;"><br>
+      </div>
+Wir
+sehen, dass alle Ein- und Ausgänge doppelt vorhanden sind.<br>
+&nbsp;<br style="color: rgb(0, 102, 0);">
+Wir
+können mit dem Treiber also <span style="font-weight: bold;">2
+Motoren unabhängig voneinander steuern</span>. Die
+Stromsensoren benötigen wir nur für
+Sonderfälle und für die Ansteuerung
+von Schrittmotoren. Da wir in diesem Artikel aber nur über <span style="font-weight: bold;">Gleichstrommotoren</span>
+sprechen, verbinden wir Pin 1 und Pin 15 einfach mit Minus. Die
+sonstigen Ein- und&nbsp; Ausgänge erklären sich
+eigentlich von selber.<br style="color: rgb(0, 102, 0);">
+      <br style="color: rgb(0, 102, 0);">
+      <br>
+Kommen wir nun zum eigentlichen Schaltbild einer einzelnen Treiberstufe:<br style="color: rgb(0, 102, 0);">
+      <br style="color: rgb(0, 102, 0);">
+      <div style="text-align: center;"><img style="width: 673px; height: 490px;" alt="" title="Ansteuerung eines Gleichstrommotors" src="1-2-9-motortreiber-298-Dateien/gleichstromtreiber-L298.GIF"><br style="color: rgb(0, 102, 0);">
+      </div>
+      <br style="color: rgb(0, 102, 0);">
+Wir sehen also den Motor, das IC (bzw. die Hälfte davon) und vier
+Dioden sowie zwei Kondensatoren. <br>
+      <br>
+      <br>
+      <div style="text-align: center;">Ja wirklich! <br>
+      <br>
+Das ist schon alles! <br>
+      </div>
+      <br>
+      <br>
+Die Dioden dienen als <span style="font-weight: bold;">Freilaufdioden</span>,
+weil
+ja Motoren eine <span style="font-weight: bold;">induktive
+Last</span> sind und die Endstufe des ICs somit geschützt werden
+muss. Die
+Kondensatoren halten Störspannungen fern, die das IC
+vielleicht in der Arbeit behindern könnten. Sie müssen nicht
+ganz genau
+100nF haben, es gehen auch geringfügig größere
+Kondensatoren, wenn nichts anderes
+vorhanden ist. Die Dioden sind sehr schnelle Dioden, die man auch
+für
+die Ansteuerung von Schrittmotoren verwenden kann, aber auch hier tun
+es andere Dioden ebenso. Das IC verträgt 2
+Ampere Motorstrom bei bis zu 42 Volt Motorspannung pro Motor.
+Allerdings sollte man einen ordentlichen Kühlkörper
+vorsehen, wenn man
+die volle Leistung schalten will. Beim Betrieb von 2 Motoren darf jeder
+Motor bis zu 2 Ampere "ziehen".<br style="color: rgb(0, 102, 0);">
+      <br>
+An der rechten Seite sehen wir dann also die TTL-kompatiblen
+Eingänge,
+sowie die extra 5 Volt-Versorgung für die Logik des ICs.<br style="color: rgb(0, 102, 0);">
+      <br>
+Die
+Dreiecke mit der 3 und der 4 sind übrigens nichts anderes als
+die oben
+besprochene Brücke, je 2 "Schalter" in einem Dreieck. Diese
+"Schalter"
+sind natürlich als Leistungstransistoren ausgeführt,
+logisch.<br style="color: rgb(0, 102, 0);">
+      <br style="color: rgb(0, 102, 0);">
+Kommen wir nun zum Abschluss zu der Ansteuerung des ICs.<br style="color: rgb(0, 102, 0);">
+      <br>
+      <br>
+      <div style="text-align: center;">Dazu betrachten wir uns folgende
+Tabelle:<br style="color: rgb(0, 102, 0);">
+      </div>
+      <br>
+      <div style="text-align: center;"><img style="width: 520px; height: 348px;" alt="" title="Logiktabelle" src="1-2-9-motortreiber-298-Dateien/gleichstromtreiber-tabelle.GIF"><br>
+      <br>
+      <br>
+      </div>
+      <br style="color: rgb(0, 102, 0);">
+Wir sehen, dass wir immer 3 Eingaben machen müssen, also bei
+voller
+Flexibilität 3 Bit vom Controller "mopsen" müssen.
+Wie die 3 Bit belegt
+sein müssen, ist aus der Tabelle leicht ersichtlich. Wenn
+Freigabe B auf
+logisch 1 ist, so können wir den Motor rechts herum und links
+herum
+drehen lassen, indem wir die Eingänge 3 und 4 entsprechend
+ansteuern. <br>
+      <br>
+Sind die Eingänge 3 und 4 gleich, also beide "0" oder beide
+"1", so
+legen wir mit dem Motor eine "Vollbremsung" hin. Dabei wird das Gleiche
+gemacht, wie schon oben in der Skizze angesprochen, nämlich
+die beiden
+Motoranschlüsse kurz geschlossen, eine Kurzschlussbremsung
+also. <br>
+      <br>
+Lassen wir den Motor dagegen gerade rechts- oder linksherum laufen und
+steuern dann die Freigabe B auf logisch "0", so wird der Motor ganz
+normal auslaufen, als hätten wir ihm "den Strom geklaut", was
+auch wirklich so durch die Treiberstufen erledigt wird.<br style="color: rgb(51, 51, 255);">
+      <br>
+Wenn wir uns nun aber entschließen, den Motor ständig
+immer nur im "Vollbrems-Modus" zu "fahren", so können wir die
+Freigabe B
+auch gleich
+fest auf logisch "1" verdrahten und sparen somit 1 Bit, so dass wir
+unserem Controller nur noch "lächerliche" 2 BIT "klauen"
+müssen.<br style="color: rgb(255, 102, 0);">
+      <br style="color: rgb(255, 102, 0);">
+Wir brauchen dann nämlich nur noch die 2 Bit entsprechend
+anzulegen und der Motor wird rechts laufen, links laufen oder eine
+Vollbremsung
+machen.<br>
+      <br>
+Es ist wie gesagt auch nur die eine Hälfte des ICs
+beschrieben, die andere Hälfte wird genau so angeschlossen, da
+braucht
+man nur mal auf den Anschlussplan mit dem Gehäuse zu schauen, dann
+ist das
+ganz einfach. Somit lassen sich dann 2 Motoren über 4 Bit von
+einem
+beliebigen Controller oder einer TTL-Schaltung (CMOS mit 5 Volt geht
+auch) betreiben.<br>
+      <br>
+Um den Treiber L298 jetzt aber einmal genauer unter die Lupe nehmen zu
+können, ist es nötig, dass wir ihn erst einmal "steckbrett-tauglich"
+machen. Der Treibe kann nämlich aufgrund seines Mulitwatt 15 Gehäuses
+zwar in eine Lochrasterplatine gefummelt werden, jedoch nicht so
+einfach auf ein Steckbrett gesteckt werden.&nbsp; <br>
+      <br>
+      <div align="center"><img alt="" src="1-2-9-motortreiber-298-Dateien/schritmot-treiber2.jpg" height="300" width="400"><br>
+Multiwatt 15 Gehäuse passt nicht auf ein Steckbrett.<br>
+      <br>
+      </div>
+      <div align="center"><img alt="" src="1-2-9-motortreiber-298-Dateien/schritmot-treiber3.jpg" height="300" width="400"><br>
+Der L298 kann aber auf eine Lochrasterplatine gelötet werden.<br>
+      </div>
+      <br>
+      <div align="center">Da kann man sich also einfach einen Adapter bauen, auf den man den L298-Treiber auflötet.<br>
+      <br>
+Von der Bauteilseite her steckt man den L298 in die Lochrasterplatine<br>
+und von der Leiterbahnseite her je eine Reihe Stiftleisten, die <br>
+man auch auf dieser Seite verlötet.<br>
+      <br>
+Fertig. <br>
+      <br>
+Leiterbahn-Unterbrechungen nicht vergessen !<br>
+      <br>
+      <br>
+      </div>
+      <div align="center"><img alt="" src="1-2-9-motortreiber-298-Dateien/schritmot-treiber5.jpg" height="300" width="400"><br>
+      </div>
+      <div align="center">Fertig ist der L298-Adapter.<br>
+      <br>
+      <div align="justify">Nun können wir den L298 auch ganz
+einfach&nbsp; auf ein&nbsp; Steckbrett stecken,&nbsp; ein paar
+Miniaturtaster,&nbsp; Pull-Down-Widerstände und Dioden dazu , und
+fertig ist die Versuchsschaltung, mit der wir sehr schön die Funktion
+der verschiedenen Anschlusspins herausfinden können.<br>
+      <br>
+      <div align="center">Doch zunächst der Schaltplan dazu:<br>
+      <br>
+      <img alt="" src="1-2-9-motortreiber-298-Dateien/l298-pruefschaltung.png" height="520" width="633"><br>
+      <br>
+      </div>
+      </div>
+Und hier das Foto der kleinen Steckplatine dazu:<br>
+      <br>
+      <img alt="" src="1-2-9-motortreiber-298-Dateien/l298-pruefschaltung-foto.png" height="327" width="730"><br>
+      </div>
+ 
+      <div align="center">Ich habe hierbei für den Motor auch gleich die 5 Volt Logikspannung benutzt.<br>
+Klar dreht der Motor etwas langsam (es ist ein 12 Volt-Motor), aber zur Probe geht das ja ...<br>
+      <br>
+
+      </div>
+<div align="center">Probiere nun, mit den Tastern "zu spielen" und Du wirst sehen, wie der Motor reagiert.<br>
+      <br>
+Der Treiber ist robuster, als man denkt.<br>
+      <blockquote>
+        <blockquote>
+          <div align="left"><img alt="" src="1-2-9-motortreiber-298-Dateien/doktor.gif" height="63" width="73"><br>
+          <br>
+          <font color="#3366ff"><b>Kleines, nicht ganz ernst gemeintes Rätsel:<br>
+          <br>
+          </b></font>
+          <ul>
+            <li><font color="#3366ff"><b>Welches Fortbewegungsmittel stellt der Umriss des Bildes dar ?<br>
+              <br>
+Richtige Frage:<br>
+              <br>
+              </b></font></li>
+            <li><font color="#3366ff"><b>Was sind "RTU-NiMh-Akkus ?"</b></font></li>
+            <li><font color="#3366ff"><b>Was ist der enorme Vorteil dieser Akkus gegenüber Standard NiMh-Akkus ?<br>
+              </b></font></li>
+          </ul>
+          </div>
+        </blockquote>
+      </blockquote>
+
+      </div>
+      <div align="justify"><br>
+      <div align="center">Natürlich kann man auch einmal versuchen, ein <a href="http://www.strippenstrolch.de/1-3-13-pwm-pulsweitenmodulation.html">PWM-Signal</a> auf den L298 zu geben. Das funktioniert genau so gut:<br>
+      </div>
+      <br>
+      <div align="center"><img alt="" src="1-2-9-motortreiber-298-Dateien/l298-pruefschaltung-pwm.png" height="843" width="665"><br>
+      </div>
+      </div>
+
+<br>
+      <br>
+      <div style="margin-left: 240px;"><br>
+      <br>
+Nur Mut beim Basteln,<br>
+      </div>
+      <br>
+      <div style="text-align: center;"><img style="width: 200px; height: 105px;" alt="" src="1-2-9-motortreiber-298-Dateien/signatur.png"><br>
+      </div>
+      <br>
+      </td>
+    </tr>
+    <tr align="center">
+      <td valign="top">
+      <hr size="2" width="100%">
+      <div align="center"><font face="Arial"><a target="" href="#_oben">Nach
+oben</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+      </font><a href="http://www.strippenstrolch.de/menue-1.html"><font face="Arial">Zurück zum
+Menü 1</font> </a></div>
+      <iframe src="1-2-9-motortreiber-298-Dateien/fuss.html" frameborder="0" height="300" scrolling="no" width="100%"></iframe><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+</div>
+</body></html>

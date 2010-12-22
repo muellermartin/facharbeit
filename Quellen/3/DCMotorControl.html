@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+  <title>Physical Computing at ITP | Labs / DC Motor Control Using an H-Bridge </title>
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <link rel="stylesheet" href="DCMotorControl-Dateien/itp_pcomp.css" type="text/css">
+  <!--HTMLHeader--><style type="text/css"><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: small; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: small; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; 
+    width: 350px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.toc ol#tocid {
+	padding-top: 5px;
+	padding-bottom: 5px; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script>  <meta name="robots" content="index,follow">
+
+</head><body>
+
+<div id="container">
+<!--PageHeaderFmt-->
+	<div id="topheader">
+	  <div id="wikilogo"><a href="http://itp.nyu.edu/physcomp"><img src="DCMotorControl-Dateien/itp_pcomp_header.gif" alt="Physical Computing at ITP" border="0"></a></div>
+
+	  <div id="wikihead">
+	  <form action="http://itp.nyu.edu/physcomp">
+		<input name="n" value="Labs.DCMotorControl" type="hidden">
+		<input name="action" value="search" type="hidden">
+		<a href="http://itp.nyu.edu/physcomp/Site/Search">Search</a>:
+		<input name="q" class="inputbox searchbox" type="text">
+		<input class="inputbutton searchbutton" value="Go" type="submit"></form>
+	  </div>	
+		
+	</div>
+<!--/PageHeaderFmt-->
+  <table cellpadding="0" cellspacing="0" height="100%" width="100%"><tbody><tr>
+<!--PageLeftFmt-->
+      <td id="wikileft" height="100%" valign="top">
+        <p><strong><a class="wikilink" href="http://itp.nyu.edu/physcomp/Intro/HomePage">Intro to Physical Computing Syllabus</a></strong>
+</p>
+<p class="vspace"><strong>Research &amp; Learning</strong>
+</p><ul><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Tutorials/Tutorials">Tutorials &amp; Labs</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Notes/Notes">Links</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Parts/Parts">Parts</a>
+</li></ul><p class="vspace"><strong>Other Class pages</strong>
+</p><ul><li><a class="urllink" href="http://itp.nyu.edu/physcomp/sensors/Main/HomePage" rel="nofollow">Sensor Wiki</a>
+</li><li><a class="urllink" href="http://itp.nyu.edu/sustainability/" rel="nofollow">Sustainability Wiki</a>
+</li><li><a class="urllink" href="http://itp.nyu.edu/wearables/" rel="nofollow">Wearables</a>
+</li><li><a class="urllink" href="http://itp.nyu.edu/materials/info/index.html" rel="nofollow">Materials</a>
+</li><li><a class="urllink" href="http://itp.nyu.edu/nime" rel="nofollow">NIME</a>
+</li><li><a class="urllink" href="http://web.mac.com/er0sentha1/iWeb/NYUBAC/Syllabus.html" rel="nofollow">Basic Analog Circuits</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Classes/Classes">More Class Pages...</a>
+</li></ul><p class="vspace"><strong><a class="wikilink" href="http://itp.nyu.edu/physcomp/Main/HomePage">Shop Admin</a></strong>
+</p><ul><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Announcements/Announcements">Announcements</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Events/Events">Events</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/People/People">People</a>
+</li><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Policy/Policy">Safety Information &amp; Shop Policies</a>
+<div class="vspace"></div></li><li><strong><a class="urllink" href="http://itp.nyu.edu/signup/day.php?area=1" rel="nofollow">Shop cleanup signup</a></strong>
+</li><li><strong><a class="urllink" href="mailto:itp.helpdesk@nyu.edu?subject=phys%20comp%20shop" rel="nofollow">Report a shop issue</a></strong>
+</li><li><strong><a class="wikilink" href="http://itp.nyu.edu/physcomp/Main/List">phys-comp mailing list</a></strong>
+</li></ul><p class="vspace"><a class="urllink" href="http://itp.nyu.edu/help" rel="nofollow">ITP Help Pages</a><br><a class="urllink" href="http://tigoe.net/pcomp" rel="nofollow">Tom's pcomp site</a><br><a class="urllink" href="http://itp.nyu.edu/%7Edbo3/physical/physical.html" rel="nofollow">DanO's pcomp site</a>
+</p>
+<div class="vspace"></div><hr>
+<div class="vspace"></div><ul><li><a class="wikilink" href="http://itp.nyu.edu/physcomp/Site/AllRecentChanges?action=rss">rss feed for this site</a>
+</li></ul><div class="vspace"></div>
+         
+      </td>
+<!--/PageLeftFmt-->
+      <td id="wikibody" height="100%" valign="top">
+<!--PageActionFmt-->
+        <!--<div id='wikicmds'><ul><li class='browse'><a accesskey=''  class='selflink' href='http://itp.nyu.edu/physcomp/Labs/DCMotorControl'>View</a>
+</li><li class='edit'><a accesskey='e'  rel='nofollow'  class='wikilink' href='http://itp.nyu.edu/physcomp/Labs/DCMotorControl?action=edit'>Edit</a>
+</li><li class='diff'><a accesskey='h'  rel='nofollow'  class='wikilink' href='http://itp.nyu.edu/physcomp/Labs/DCMotorControl?action=diff'>History</a>
+</li><li class='print'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://itp.nyu.edu/physcomp/Labs/DCMotorControl?action=print'>Print</a>
+</li></ul>
+</div>-->
+<!--PageTitleFmt-->
+        <div id="wikititle">
+          <!--<div class='pagegroup'><a href='http://itp.nyu.edu/physcomp/Labs'>Labs</a> /</div>-->
+          <h1 class="pagetitle">DC Motor Control Using an H-Bridge</h1></div>
+<!--PageText-->
+<div id="wikitext">
+<div class="vspace"></div><h3>Overview</h3>
+<p>In this tutorial, you'll learn how to control a DC motor's direction using an H-bridge.  
+</p>
+<p class="vspace">To reverse a DC motor, you need to be able to reverse 
+the direction of the current in the motor. The easiest way to do this is
+ using an H-bridge circuit. There are many different models and brands 
+of H-Bridge.  This tutorial uses one of the most basic, a <a class="urllink" href="http://octopart.com/search?q=L293NE" rel="nofollow">Texas Instruments L293NE</a> or a <a class="urllink" href="http://octopart.com/search?q=SN754410" rel="nofollow">Texas Instruments SN754410</a>.
+</p>
+<p class="vspace">If you simply want to turn a motor on and off, and 
+don't need to reverse it, for example if you're controlling a fan, try 
+the tutorial on <a class="wikilink" href="http://itp.nyu.edu/physcomp/Tutorials/HighCurrentLoads">controlling high current loads with transistors</a>.
+</p>
+<div class="vspace"></div><div class="toc"><p><a name="toc" id="toc"></a><b>Table of Contents</b> (<a id="tocidtog" href="javascript:toggle('tocid');">hide</a>)</p><ol class="toc" id="tocid"><li>1.&#8194;<a href="#toc1">Parts</a></li><li>2.&#8194;<a href="#toc2">Prepare the breadboard</a></li><li>3.&#8194;<a href="#toc3">Add a Digital Input (a switch)</a></li><li>4.&#8194;<a href="#toc4">Find a motor</a></li><li>5.&#8194;<a href="#toc5">Set up the H-bridge</a></li><li>6.&#8194;<a href="#toc6">How your H-bridge works</a></li><li>7.&#8194;<a href="#toc7">Connect the motor to the H-bridge</a></li><li>8.&#8194;<a href="#toc8">Program the Microcontroller</a></li><li>9.&#8194;<a href="#toc9">Get creative</a></li></ol></div>
+<div class="vspace"></div><h3><a name="toc1" id="toc1"></a>1.&#8194;  Parts</h3>
+<p>For this lab you'll need:
+</p>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/breadboard.jpg" rel="nofollow"><img src="DCMotorControl-Dateien/breadboard.jpg" alt="Solderless breadboard" title="Solderless breadboard" width="100px"></a><br><span style="font-size: 83%;">Solderless breadboard</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/hookup_wire.jpg" rel="nofollow"><img src="DCMotorControl-Dateien/hookup_wire.jpg" alt="hookup wire" title="hookup wire" width="100px"></a><br><span style="font-size: 83%;">22-AWG hookup wire</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/arduino.jpg" rel="nofollow"><img src="DCMotorControl-Dateien/arduino.jpg" alt="Arduino module" title="Arduino module" width="100px"></a><br><span style="font-size: 83%;">Arduino Microcontroller <br>module</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/leds.jpg" rel="nofollow"><img src="DCMotorControl-Dateien/leds.jpg" alt="Light Emiting Diodes" title="Light Emiting Diodes" width="100px"></a><br><span style="font-size: 83%;">Light Emiting Diodes, LED </span></span></div>
+<p class="vspace"><br clear="all">
+</p>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/resistors.jpg" rel="nofollow"><img src="DCMotorControl-Dateien/resistors.jpg" alt="resistors" title="resistors" width="100px"></a><br><span style="font-size: 83%;">10Kohm resistors</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/switch.jpg" rel="nofollow"><img src="DCMotorControl-Dateien/switch.jpg" alt="switch" title="switch" width="100px"></a><br><span style="font-size: 83%;">Switch</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/L293_h-bridge.JPG" rel="nofollow"><img src="DCMotorControl-Dateien/L293_h-bridge.JPG" alt="L293 H-bridge" title="L293 H-bridge" width="100px"></a><br><span style="font-size: 83%;"><span class="wikiword">L293NE</span> <br clear="all"> or <span class="wikiword">SN754410</span> H-bridge</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/dc_power_supply.JPG" rel="nofollow"><img src="DCMotorControl-Dateien/dc_power_supply.JPG" alt="DC power supply" title="DC power supply" width="100px"></a><br><span style="font-size: 83%;">12V DC power supply</span></span></div>
+<div class="vspace"></div><div><span class="frame lfloat"> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/dc_motor.JPG" rel="nofollow"><img src="DCMotorControl-Dateien/dc_motor.JPG" alt="DC Motor" title="DC Motor" width="100px"></a><br><span style="font-size: 83%;">DC Motor</span></span></div>
+<p class="vspace"><br clear="all">
+</p>
+<div class="vspace"></div><h3><a name="toc2" id="toc2"></a>2.&#8194;  Prepare the breadboard</h3>
+<p>Connect power and ground on the breadboard to power and ground from 
+the microcontroller. On the Arduino module, use the 5V and any of the 
+ground connections:
+</p>
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_and_breadboard_bb.png" rel="nofollow"><img src="DCMotorControl-Dateien/arduino_and_breadboard_bb.png" alt="" title="" align="top" width="600"></a></div>
+<p><span style="font-size: 69%;">(Diagram made with <a class="urllink" href="http://fritzing.org/" rel="nofollow">Fritzing</a> - <a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/arduino_and_breadboard.zip" rel="nofollow">download</a>)</span>
+</p>
+<div class="vspace"></div><h3><a name="toc3" id="toc3"></a>3.&#8194;  Add a Digital Input (a switch)</h3>
+<p>Connect a switch to digital input 2 on the Arduino. 
+</p>
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/dc_motor_control_with_h-bridge_switch_bb.png" rel="nofollow"><img src="DCMotorControl-Dateien/dc_motor_control_with_h-bridge_switch_bb.png" alt="" title="" width="600"></a></div>
+<p><span style="font-size: 69%;">(Diagram made with <a class="urllink" href="http://fritzing.org/" rel="nofollow">Fritzing</a> - <a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/dc_motor_control_with_h-bridge_switch.zip" rel="nofollow">download</a>)</span>
+</p>
+<div class="vspace"></div><h3><a name="toc4" id="toc4"></a>4.&#8194;  Find a motor</h3>
+<p>Find yourself a DC motor that runs on low DC voltage within the range of 5 - 15V. <a class="urllink" href="http://www.radioshack.com/search/index.jsp?kwCatId=&amp;kw=dc%20motor&amp;origkw=dc%20motor&amp;sr=1" rel="nofollow">RadioShack</a>
+ often sells several small DC motors, the NYU Computer Store on occasion
+ has small a few, the junk shelf is almost always a goldmine for 
+discarded motors and fans.Asking classmates and second years is another 
+good approach.
+</p>
+<p class="vspace">Solder leads to the motor's terminals. With DC motors,
+ there is no polarity regarding the motor terminals so you can connect 
+it any way you'd like.
+</p>
+<p class="vspace"><strong>Optional:</strong> Consider testing your motor
+ with a bench power supply from the equipment room. Ask a teacher or 
+resident if you need help setting one up. Begin by adjusting the voltage
+ on the bench power supply and observe its effects. Take note of its 
+speed at different voltages without dipping to low or too high. Running a
+ motor at a voltage much lower or much higher than what it's rated for 
+could potentially damage or permanently destroy your motor. When the 
+motor doesn't spin, the voltage is too low.  When the motor runs hot, or
+ sounds like it's straining, the voltage is too high.
+</p>
+<div class="vspace"></div><h3><a name="toc5" id="toc5"></a>5.&#8194;  Set up the H-bridge</h3>
+<div> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/L293_h-bridge.JPG" rel="nofollow"><img src="DCMotorControl-Dateien/L293_h-bridge.JPG" alt="L293 H-bridge" title="L293 H-bridge" width="200px"></a><br><span style="font-size: 83%;"><span class="wikiword">L293NE</span> H-bridge</span></div>
+<p class="vspace">This example uses an H-bridge integrated circuit, the <a class="urllink" href="http://octopart.com/search?q=L293NE" rel="nofollow">Texas Instruments L293NE</a> or <a class="urllink" href="http://octopart.com/search?q=SN754410" rel="nofollow">Texas Instruments SN754410</a>. There is one  in your Physical Computing Kit, and the NYU Computer Store and many distributors such as <a class="urllink" href="http://www.digikey.com/" rel="nofollow">Digikey</a>, <a class="urllink" href="http://www.sparkfun.com/commerce/product_info.php?products_id=315" rel="nofollow">SparkFun</a>, <a class="urllink" href="http://www.mouser.com/" rel="nofollow">Mouser</a> and <a class="urllink" href="http://www.jameco.com/" rel="nofollow">Jameco</a> sell them as well.
+</p>
+<div class="vspace"></div><h3><a name="toc6" id="toc6"></a>6.&#8194;  How your H-bridge works</h3>
+<p class="vspace">The <span class="wikiword">L293NE/SN754410</span> is a
+ very basic H-bridge. It has two bridges, one on the left side of the 
+chip and one on the right,  and can control 2 motors. It can drive up to
+ 1 amp of current, and operate between 4.5V and 36V. The small DC motor 
+you are using in this lab can run safely off a low voltage so this 
+H-bridge will work just fine.
+</p>
+<p class="vspace">The H-bridge has the following pins and features:
+</p>
+<div class="vspace"></div><ul><li>Pin 1 (1,2EN) enables and disables our motor whether it is give HIGH or LOW
+</li><li>Pin 2 (1A) is a logic pin for our motor (input is either HIGH or LOW)
+</li><li>Pin 3 (1Y) is for one of the motor terminals
+</li><li>Pin 4-5 are for ground
+</li><li>Pin 6 (2Y) is for the other motor terminal
+</li><li>Pin 7 (2A) is a logic pin for our motor (input is either HIGH or LOW)
+</li><li>Pin 8 (<span class="wikiword">VCC2</span>) is the power supply for our motor, this should be given the rated voltage of your motor
+</li><li>Pin 9-11 are unconnected as you are only using one motor in this lab
+</li><li>Pin 12-13 are for ground
+</li><li>Pin 14-15 are unconnected
+</li><li>Pin 16 (<span class="wikiword">VCC1</span>) is connected to 5V
+</li></ul><p class="vspace">Below is a diagram of the H-bridge and which
+ pins do what in our example. Included with the diagram is a truth table
+ indicating how the motor will function according to the state of the 
+logic pins (which are set by our Arduino).
+</p>
+<div class="vspace"></div><div> <a class="urllink" href="http://itp.nyu.edu/physcomp/images/labs/hbridge_labpinout.jpg" rel="nofollow"><img src="DCMotorControl-Dateien/hbridge_labpinout.jpg" alt="" title="" width="800px"></a></div>
+<p class="vspace">For this lab, the enable pin connects to a digital pin
+ on your Arduino so you can send it either HIGH or LOW and turn the 
+motor ON or OFF. The motor logic pins also connected to designated 
+digital pins on your Arduino so you can send it HIGH and LOW to have the
+ motor turn in one direction, or LOW and HIGH to have it turn in the 
+other direction. The motor supply voltage connects to the voltage source
+ for the motor, which is usually an external power supply. If your motor
+ can run on 5V and less than 500mA, you can use the Arduino's 5V output.
+ Most motors require a higher voltage and higher current draw than this,
+ so you might need an external power supply.
+<br clear="all">
+</p>
+<div class="vspace"></div><h3><a name="toc7" id="toc7"></a>7.&#8194;  Connect the motor to the H-bridge</h3>
+<p>Connect the motor to the H-bridge as follows:
+</p>
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/dcmotor_bb.png" rel="nofollow"><img src="DCMotorControl-Dateien/dcmotor_bb.png" alt="" title="" width="600px"></a></div>
+<p><span style="font-size: 69%;">(Diagram made with <a class="urllink" href="http://fritzing.org/" rel="nofollow">Fritzing</a> - <a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/dcmotor_bb.zip" rel="nofollow">download</a>)</span>
+</p>
+<p class="vspace">Or, if you are using an external power for Arduino, you can use Vin pin.
+</p>
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/dcmotor_bb2.png" rel="nofollow"><img src="DCMotorControl-Dateien/dcmotor_bb2.png" alt="" title="" width="600px"></a></div>
+<p><span style="font-size: 69%;">(Diagram made with <a class="urllink" href="http://fritzing.org/" rel="nofollow">Fritzing</a> - <a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/dcmotor_bb2.zip" rel="nofollow">download</a>)</span>
+</p>
+<p class="vspace">If you need an external power supply, y ou can use any
+ DC power supply or battery from 9 - 15V as long as your motor can run 
+at that voltage, and as long as the supply can supply as much current as
+ your motor needs.
+</p>
+<p class="vspace">Plug an external  DC power source into the Arduino's 
+external power input. You may still leave your USB cable plugged in for 
+quick and easy reprogramming. Whichever motor you use, make sure the 
+power source is compatible (i.e. don't use a 9V battery for a 3V 
+motor!). The external voltage input is available at the Vin pin, so you 
+can use it both to power the Arduino, and to power the motor.
+</p>
+<div class="vspace"></div><div><a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/decoupling_cap_bb.png" rel="nofollow"><img src="DCMotorControl-Dateien/decoupling_cap_bb.png" alt="" title="" width="400px"></a></div>
+<p><span style="font-size: 69%;">(Diagram made with <a class="urllink" href="http://fritzing.org/" rel="nofollow">Fritzing</a> - <a class="urllink" href="http://itp.nyu.edu/physcomp/uploads/dcmotor_bb2.zip" rel="nofollow">download</a>)</span>
+</p>
+<p class="vspace">If you find that your microcontroller is resetting 
+whenever the motor turns on, add a capacitor across power and ground 
+close to the motor. The capacitor will smooth out the voltage dips that 
+occur when the motor turns on.  This use of a capacitor is called a <strong>decoupling capacitor</strong>.
+ Usually a 10 - 100uF capacitor will work.  The larger the cap, the more
+ charge it can hold, but the longer it will take to release its charge.
+</p>
+<div class="vspace"></div><h3><a name="toc8" id="toc8"></a>8.&#8194;  Program the Microcontroller</h3>
+<p>Program the microcontroller to run the motor through the H-bridge:
+</p>
+<div class="vspace"></div><div class="code">
+<div class="vspace"></div><pre>  const <span style="color: rgb(204, 102, 0);">int</span> switchPin = 2;    <span style="color: rgb(126, 126, 126);">// switch input</span>
+  const <span style="color: rgb(204, 102, 0);">int</span> motor1Pin = 3;    <span style="color: rgb(126, 126, 126);">// H-bridge leg 1 (pin 2, 1A)</span>
+  const <span style="color: rgb(204, 102, 0);">int</span> motor2Pin = 4;    <span style="color: rgb(126, 126, 126);">// H-bridge leg 2 (pin 7, 2A)</span>
+  const <span style="color: rgb(204, 102, 0);">int</span> enablePin = 9;    <span style="color: rgb(126, 126, 126);">// H-bridge enable pin</span>
+  const <span style="color: rgb(204, 102, 0);">int</span> ledPin = 13;      <span style="color: rgb(126, 126, 126);">// LED </span>
+
+  <span style="color: rgb(204, 102, 0);">void</span> <span style="color: rgb(204, 102, 0);"><strong>setup</strong></span>() {
+    <span style="color: rgb(126, 126, 126);">// set the switch as an input:</span>
+    <span style="color: rgb(204, 102, 0);">pinMode</span>(switchPin, <span style="color: rgb(0, 102, 153);">INPUT</span>); 
+
+    <span style="color: rgb(126, 126, 126);">// set all the other pins you're using as outputs:</span>
+    <span style="color: rgb(204, 102, 0);">pinMode</span>(motor1Pin, <span style="color: rgb(0, 102, 153);">OUTPUT</span>); 
+    <span style="color: rgb(204, 102, 0);">pinMode</span>(motor2Pin, <span style="color: rgb(0, 102, 153);">OUTPUT</span>); 
+    <span style="color: rgb(204, 102, 0);">pinMode</span>(enablePin, <span style="color: rgb(0, 102, 153);">OUTPUT</span>);
+    <span style="color: rgb(204, 102, 0);">pinMode</span>(ledPin, <span style="color: rgb(0, 102, 153);">OUTPUT</span>);
+
+    <span style="color: rgb(126, 126, 126);">// set enablePin high so that motor can turn on:</span>
+    <span style="color: rgb(204, 102, 0);">digitalWrite</span>(enablePin, <span style="color: rgb(0, 102, 153);">HIGH</span>); 
+
+    <span style="color: rgb(126, 126, 126);">// blink the LED 3 times. This should happen only once.</span>
+    <span style="color: rgb(126, 126, 126);">// if you see the LED blink three times, it means that the module</span>
+    <span style="color: rgb(126, 126, 126);">// reset itself,. probably because the motor caused a brownout</span>
+    <span style="color: rgb(126, 126, 126);">// or a short.</span>
+    <span style="color: rgb(204, 102, 0);">blink</span>(ledPin, 3, 100);
+  }
+
+  <span style="color: rgb(204, 102, 0);">void</span> <span style="color: rgb(204, 102, 0);"><strong>loop</strong></span>() {
+    <span style="color: rgb(126, 126, 126);">// if the switch is high, motor will turn on one direction:</span>
+    <span style="color: rgb(204, 102, 0);">if</span> (<span style="color: rgb(204, 102, 0);">digitalRead</span>(switchPin) == <span style="color: rgb(0, 102, 153);">HIGH</span>) {
+      <span style="color: rgb(204, 102, 0);">digitalWrite</span>(motor1Pin, <span style="color: rgb(0, 102, 153);">LOW</span>);   <span style="color: rgb(126, 126, 126);">// set leg 1 of the H-bridge low</span>
+      <span style="color: rgb(204, 102, 0);">digitalWrite</span>(motor2Pin, <span style="color: rgb(0, 102, 153);">HIGH</span>);  <span style="color: rgb(126, 126, 126);">// set leg 2 of the H-bridge high</span>
+    } 
+    <span style="color: rgb(126, 126, 126);">// if the switch is low, motor will turn in the other direction:</span>
+    <span style="color: rgb(204, 102, 0);">else</span> {
+      <span style="color: rgb(204, 102, 0);">digitalWrite</span>(motor1Pin, <span style="color: rgb(0, 102, 153);">HIGH</span>);  <span style="color: rgb(126, 126, 126);">// set leg 1 of the H-bridge high</span>
+      <span style="color: rgb(204, 102, 0);">digitalWrite</span>(motor2Pin, <span style="color: rgb(0, 102, 153);">LOW</span>);   <span style="color: rgb(126, 126, 126);">// set leg 2 of the H-bridge low</span>
+    }
+  }
+
+  <span style="color: rgb(126, 126, 126);">/*</span>
+  <span style="color: rgb(126, 126, 126);">  blinks an LED</span>
+  <span style="color: rgb(126, 126, 126);"> */</span>
+  <span style="color: rgb(204, 102, 0);">void</span> <span style="color: rgb(204, 102, 0);">blink</span>(<span style="color: rgb(204, 102, 0);">int</span> whatPin, <span style="color: rgb(204, 102, 0);">int</span> howManyTimes, <span style="color: rgb(204, 102, 0);">int</span> milliSecs) {
+    <span style="color: rgb(204, 102, 0);">int</span> i = 0;
+    <span style="color: rgb(204, 102, 0);">for</span> ( i = 0; i &lt; howManyTimes; i++) {
+      <span style="color: rgb(204, 102, 0);">digitalWrite</span>(whatPin, <span style="color: rgb(0, 102, 153);">HIGH</span>);
+      <span style="color: rgb(204, 102, 0);">delay</span>(milliSecs/2);
+      <span style="color: rgb(204, 102, 0);">digitalWrite</span>(whatPin, <span style="color: rgb(0, 102, 153);">LOW</span>);
+      <span style="color: rgb(204, 102, 0);">delay</span>(milliSecs/2);
+    }
+  }
+</pre><div class="vspace"></div></div>
+<p class="vspace">Once you've seen this code working, try modifying the speed of the motor using the analogWrite() function, as explained in the <a class="wikilink" href="http://itp.nyu.edu/physcomp/Labs/AnalogIn">Analog Lab</a>.  Use analogWrite() on pin 9, the enable pin of the motor, and see what happens as you change the value of the analogWrite().
+</p>
+<div class="vspace"></div><h3><a name="toc9" id="toc9"></a>9.&#8194;  Get creative</h3>
+<p class="vspace"><em>This is a suggestion for a possible project.  You 
+can do any project you wish as long as it demonstrates your mastery of 
+the lab exercises and good physical interaction. </em>
+</p>
+<p class="vspace">Use your motor to make something move, vibrate, rise, 
+fall, roll, creep, or whatever you can think of, in response to user 
+input from a digital input device (switch, floor sensor, tripwire, etc).
+ Look inside moving toys, you'll find a number of excellent motors and 
+gears you can re-purpose. See the innards of a cymbal monkey below as an
+ example.  Perhaps you can re-design the user interface to a toy, using 
+the microcontroller to mediate between new sensors on the toy and the 
+motors of the toy. Whatever you build, make sure it reacts in some way 
+to human action.
+</p>
+<div class="vspace"></div><div><img src="DCMotorControl-Dateien/cymbal_monkey_innards.JPG" alt="" title=""></div>
+</div>
+
+      </td>
+    </tr></tbody></table>
+<!--PageFooterFmt-->
+  <div id="wikifoot">  
+   <table cellpadding="0" cellspacing="0" height="100%" width="100%"><tbody><tr>
+   	<td width="5">&nbsp;</td>
+	<td class="footnav" valign="middle">
+      <a rel="nofollow" href="http://itp.nyu.edu/physcomp/Labs/DCMotorControl?action=edit">Edit</a> |
+      <a rel="nofollow" href="http://itp.nyu.edu/physcomp/Labs/DCMotorControl?action=view">View</a> |          
+      <a rel="nofollow" href="http://itp.nyu.edu/physcomp/Labs/DCMotorControl?action=diff">History</a> |
+      <a rel="nofollow" href="http://itp.nyu.edu/physcomp/Labs/DCMotorControl?action=print" target="_blank">Print</a> |
+      <a href="http://itp.nyu.edu/physcomp/Labs/RecentChanges">Recent Changes</a> |
+      <a href="http://itp.nyu.edu/physcomp/Site/Search">Search</a>
+	</td><td>    	
+    </td><td class="lastmod" align="right" valign="middle">Page last modified on November 01, 2010, at 10:09 PM</td>
+   	<td width="5">&nbsp;</td>    	
+   </tr></tbody></table> 
+  </div> <!--HTMLFooter-->
+</div>
+
+</body></html>

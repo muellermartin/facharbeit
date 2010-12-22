@@ -1,0 +1,838 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml" lang="de"><head> 
+
+
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="KEYWORDS" content="Getriebemotoren Ansteuerung,Roboter,Robotik,Mikrocontroller,Staubsaugerroboter,Saugroboter,Elektronik,Avr,Arm,Pic,Controller,Schaltplan,Schaltungen,Getriebemotor,Motoren,Schrittmotoren,Sensoren,Sensor,Technik,Grundlagen,Hobby,Wiki,Mega32,Mechanik">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="http://www.rn-wissen.de/favicon.ico">
+    <title>Getriebemotoren Ansteuerung - RN-Wissen</title>
+    <style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins/monobook/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="Getriebemotoren_Ansteuerung-Dateien/commonPrint.css">
+    <!--[if lt IE 5.5000]><style type="text/css">@import "/skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "/skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if gte IE 6]><style type="text/css">@import "/skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="Getriebemotoren_Ansteuerung-Dateien/index.js"></script>    <script type="text/javascript" src="Getriebemotoren_Ansteuerung-Dateien/wikibits.js"></script>
+    <style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>              </head><body class="ns-0">
+    
+	
+
+<table class="phpbb2bodyline" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr> <td>
+<table class="phpbb2topbkg" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr> <td><a href="http://www.roboternetz.de/phpBB2/index.php"><img src="Getriebemotoren_Ansteuerung-Dateien/phpbb2_logo.jpg" alt="RoboterNetz.de Foren-�bersicht" title="RoboterNetz.de Foren-�bersicht" border="0" height="110" width="240"></a></td>
+
+<td align="right" width="100%"> 
+
+     
+<script type="text/javascript"><!--
+google_ad_client = "pub-7479754841705808";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+//2007-07-13: RN-Wissen
+google_ad_channel = "2264518497";
+google_color_border = "ECF0F6";
+google_color_bg = "ECF0F6";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+//-->
+</script>
+<script type="text/javascript" src="Getriebemotoren_Ansteuerung-Dateien/show_ads.js">
+</script>
+
+
+
+
+</td> </tr> </tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" width="100%"> <tbody><tr> <td class="phpbb2topnav" align="center">
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Hauptseite">RN-Wissen Home</a>&nbsp; -
+&nbsp;<a href="http://www.roboternetz.de/phpBB2/" target="forum">Community Home</a>&nbsp; -
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Allpages">Alle Artikel</a>&nbsp;-
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Listusers">Mitglieder</a>&nbsp;-
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Moderatoren">Moderatoren</a>&nbsp; -
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Imagelist">Bilderliste</a>&nbsp; -
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Recentchanges">Letzte Änderungen</a>
+<br>
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Categories">Kategorien</a>&nbsp; -
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Popularpages">Beliebte Seiten</a>&nbsp; -
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Deadendpages">Sackgassenartikel</a>&nbsp; -
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Uncategorizedpages">Artikel ohne Kategorie</a>&nbsp; -
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Newpages">Neue Artikel</a>&nbsp; -
+&nbsp;<a href="http://www.rn-wissen.de/index.php/Spezial:Userlogin">Anmelden</a>
+</td> </tr> </tbody></table>   </td>     </tr> </tbody></table>	 
+	
+	
+	<div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="top"></a>
+	  	  <h1 class="firstHeading">Getriebemotoren Ansteuerung</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">aus RN-Wissen, der freien Wissensdatenbank</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>Ist der Entschluss gefasst, für seinen Roboter oder andere 
+Konstruktion einen Getriebemotor zu verwenden, so müssen sich Gedanken 
+gemacht werden, wie er ansteuert werden kann. Gewöhnlich sollen die 
+Motoren ja sowohl in Bezug auf Drehrichtung und Geschwindigkeit über 
+eine Programmiersprache angesteuert werden. Daher wird in der Regel erst
+ mal ein Controllerboard benötigt. Leider kann man an die wenigsten 
+Controllerboards einen Getriebemotor direkt anschließen, eine der 
+wenigen Ausnahmen ist das <a href="http://www.rn-wissen.de/index.php/RN-Control" title="RN-Control">RN-Control</a>-Board
+ und das RNBFRA-Board. Bei beiden Boards ist es einfach, dort müssen die
+ Getriebemotoren einfach nur an die Schraubklemmen angeschlossen werden,
+ danach kann man sofort mit der Programmierung loslegen.
+</p><p>Ich möchte hier aber aufzeigen, wie man Motoren auch bei anderen 
+Boards anschließen kann. Die gleiche Technik läßt sich natürlich auch 
+nutzen, um z.B. mehr als zwei Motoren an <a href="http://www.rn-wissen.de/index.php/RN-Control" title="RN-Control">RN-Control</a> anzuschließen.
+</p>
+<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Inhaltsverzeichnis</h2> <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">Verbergen</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Ansteuerung_mit_Relais"><span class="tocnumber">1</span> <span class="toctext">Ansteuerung mit Relais</span></a></li>
+<li class="toclevel-1"><a href="#Ansteuerung_mit_Relais_und_MOS-FET"><span class="tocnumber">2</span> <span class="toctext">Ansteuerung mit Relais und MOS-FET</span></a></li>
+<li class="toclevel-1"><a href="#Ansteuerung_mit_MOS-FET"><span class="tocnumber">3</span> <span class="toctext">Ansteuerung mit MOS-FET</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Neufassung"><span class="tocnumber">3.1</span> <span class="toctext">Neufassung</span></a></li>
+<li class="toclevel-2"><a href="#Grundprinzip"><span class="tocnumber">3.2</span> <span class="toctext">Grundprinzip</span></a></li>
+<li class="toclevel-2"><a href="#Elektrische_Ansteuerung_der_Gates"><span class="tocnumber">3.3</span> <span class="toctext">Elektrische Ansteuerung der Gates</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Schaltung_direkt_am_Port"><span class="tocnumber">3.3.1</span> <span class="toctext">Schaltung direkt am Port</span></a></li>
+<li class="toclevel-3"><a href="#Schaltung_mit_einem_Transistor"><span class="tocnumber">3.3.2</span> <span class="toctext">Schaltung mit einem Transistor</span></a></li>
+<li class="toclevel-3"><a href="#Schaltung_mit_zwei_Transistoren"><span class="tocnumber">3.3.3</span> <span class="toctext">Schaltung mit zwei Transistoren</span></a></li>
+<li class="toclevel-3"><a href="#Integrierte_Gate-Treiber"><span class="tocnumber">3.3.4</span> <span class="toctext">Integrierte Gate-Treiber</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Logische_Ansteuerung_der_Gates"><span class="tocnumber">3.4</span> <span class="toctext">Logische Ansteuerung der Gates</span></a>
+<ul>
+<li class="toclevel-3"><a href="#softwarem.C3.A4.C3.9Fige_Ansteuerung"><span class="tocnumber">3.4.1</span> <span class="toctext">softwaremäßige Ansteuerung</span></a></li>
+<li class="toclevel-3"><a href="#Einfache.2C_gemeinsame_Ansteuerung"><span class="tocnumber">3.4.2</span> <span class="toctext">Einfache, gemeinsame Ansteuerung</span></a></li>
+<li class="toclevel-3"><a href="#Ansteuerung_mit_logischer_Verkn.C3.BCpfung"><span class="tocnumber">3.4.3</span> <span class="toctext">Ansteuerung mit logischer Verknüpfung</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Heidingscher_Encoder_.28Beispiel_f.C3.BCr_Logic.29"><span class="tocnumber">3.4.3.1</span> <span class="toctext">Heidingscher Encoder (Beispiel für Logic)</span></a></li>
+<li class="toclevel-4"><a href="#PR_Encoder"><span class="tocnumber">3.4.3.2</span> <span class="toctext">PR Encoder</span></a></li>
+<li class="toclevel-4"><a href="#PRK_Encoder"><span class="tocnumber">3.4.3.3</span> <span class="toctext">PRK Encoder</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="#Support"><span class="tocnumber">3.4.4</span> <span class="toctext">Support</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Alte_Schaltungsbeschreibung"><span class="tocnumber">3.5</span> <span class="toctext">Alte Schaltungsbeschreibung</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Kritik_an_der_Schaltung"><span class="tocnumber">3.5.1</span> <span class="toctext">Kritik an der Schaltung</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Ansteuerung_mit_einem_LeistungsOPV"><span class="tocnumber">4</span> <span class="toctext">Ansteuerung mit einem LeistungsOPV</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Heidingscher_Motortreiber"><span class="tocnumber">4.1</span> <span class="toctext">Heidingscher Motortreiber</span></a></li>
+<li class="toclevel-2"><a href="#Gleichstromansteuerung"><span class="tocnumber">4.2</span> <span class="toctext">Gleichstromansteuerung</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Ansteuerung_mit_Treiber_ICs"><span class="tocnumber">5</span> <span class="toctext">Ansteuerung mit Treiber ICs</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Ansteuerung_mit_Treiber_IC_L293_D"><span class="tocnumber">5.1</span> <span class="toctext">Ansteuerung mit Treiber IC L293 D</span></a></li>
+<li class="toclevel-2"><a href="#Ansteuerung_mit_dem_Schaltkreis_L298"><span class="tocnumber">5.2</span> <span class="toctext">Ansteuerung mit dem Schaltkreis L298</span></a></li>
+<li class="toclevel-2"><a href="#Ansteuerung_mit_L620x"><span class="tocnumber">5.3</span> <span class="toctext">Ansteuerung mit L620x</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#L6202_f.C3.BCr_1_Motor"><span class="tocnumber">6</span> <span class="toctext">L6202 für 1 Motor</span></a></li>
+<li class="toclevel-1"><a href="#L6205_f.C3.BCr_2_Motoren"><span class="tocnumber">7</span> <span class="toctext">L6205 für 2 Motoren</span></a>
+<ul>
+<li class="toclevel-2"><a href="#weitere_Treiber-ICs"><span class="tocnumber">7.1</span> <span class="toctext">weitere Treiber-ICs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Noch_mehr_Power_gew.C3.BCnscht.3F"><span class="tocnumber">8</span> <span class="toctext">Noch mehr Power gewünscht?</span></a></li>
+<li class="toclevel-1"><a href="#Endstufen_mit_I2C-Bus_.2F_RS232"><span class="tocnumber">9</span> <span class="toctext">Endstufen mit I2C-Bus / RS232</span></a></li>
+<li class="toclevel-1"><a href="#Und_nie_vergessen_Motoren_zu_entst.C3.B6ren"><span class="tocnumber">10</span> <span class="toctext">Und nie vergessen Motoren zu entstören</span></a></li>
+<li class="toclevel-1"><a href="#Siehe_auch"><span class="tocnumber">11</span> <span class="toctext">Siehe auch</span></a></li>
+<li class="toclevel-1"><a href="#Weblinks"><span class="tocnumber">12</span> <span class="toctext">Weblinks</span></a></li>
+</ul>
+</td></tr></tbody></table>
+<p><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "Anzeigen"; var tocHideText = "Verbergen"; showTocToggle(); } </script>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=1" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_Relais"></a><h2>Ansteuerung mit Relais</h2>
+<p>Die einfachste Methode, um Motoren per <a href="http://www.rn-wissen.de/index.php/Microcontroller" title="Microcontroller">Controller</a>
+ anzusteuern, erreicht man durch die Verwendung von Relais. Mit einem 
+Relais, das zwei Umschaltkontakte besitzt, lässt sich über einen 
+einzelnen Controllerport bequem die Drehrichtung wechseln.
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:Hbrueckerelais.gif" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/Hbrueckerelais.gif" alt="" longdesc="/index.php/Bild:Hbrueckerelais.gif" height="451" width="619"></a></span></div></div>
+<p>Da auch Relais wegen des Strombedarfes nicht direkt vom Controller 
+geschaltet werden können, wurde in dem oberen Beispiel ein Transistor 
+vorangestellt. Die Diode dient dazu, die Spannungen abzuleiten, die beim
+ Ausschalten des Relais induziert werden. Ohne Diode könnte der 
+Transistor oder sogar der Controller durch die induzierte Spannung 
+beschädigt werden. 
+Die Schaltung ist also in der Lage, die Drehrichtung umzuschalten, 
+jedoch nicht in der Lage, den Motor zu stoppen. Um den Motor ganz 
+auszuschalten, könnte man man 2 getrennte Relais für die beiden 
+Umschaltkontakte nutzen. Ein Schaltbild können wir uns ersparen, da das 
+Ganze recht ähnlich aussieht. 
+Der große Nachteil von Relaisschaltungen ist, dass die Geschwindigkeit 
+des Motors nicht geregelt werden kann, zudem haben Relais bei vielen 
+Schaltvorgängen einen gewissen Verschleiß.
+Das Auschalten einer induktiven Last ist dabei für die Relaiskontakte 
+besonders schädlich.
+Vorteil der Schaltung ist jedoch, das man auch große Lasten/Motoren 
+schalten kann.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=2" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_Relais_und_MOS-FET"></a><h2>Ansteuerung mit Relais und MOS-FET</h2>
+<p>Die Schaltung ist sehr ähnlich wie die vorherige Relaisschaltung. Es wird aber in die Masseleitung hinter dem Relais ein <a href="http://www.rn-wissen.de/index.php/Feldeffekttransistor#MOSFETS" title="Feldeffekttransistor">MOSFET</a>
+ und eine Freilaufdiode eingesetzt. Dadurch werden die Nachteile der 
+einfachen Relaisschaltung behoben. Durch den MOSFET läßt sich der Motor 
+in der Geschwindigkeit regeln und ggf. abschalten.
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:RelaisundFet.png" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/RelaisundFet.png" alt="" longdesc="/index.php/Bild:RelaisundFet.png" height="337" width="400"></a></span></div></div>
+<p>Es sind prinzipiell alle N-Kanal MOS-FETs geeignet. Für die hier 
+gezeigte direkte Steuerung vom µC sollte es ein Logik-Level-Typen sein. 
+Der FET IRLZ34 sollte ohne Kühlung bis etwa 5 A genügen. Die 
+Freilaufdiode D1 muß für den Motorstrom ausgelegt sein, und bei PWM 
+Steuerung genügend schnell sein(z.B. Shottky SB540). Die Induktivität L1
+ (ca. 10...100 µH) und der Kondensator C1 dienen zur Funkentstörung und 
+können bei kurzem Kabel zum Motor auch weggelassen werden. Um die 
+Umschaltverluste und Funkstörungen gering zu halten, sollte die <a href="http://www.rn-wissen.de/index.php/PWM" title="PWM">PWM</a>-Frequenz
+ nicht unnötig hoch liegen.
+Da das Relais nur Strom verbraucht, wenn es angezogen wird, sollte man 
+den Motor so anschließen, dass in der bevorzugten Drehrichtung (beim 
+Roboter Vorwärtsfahren) das Relais nicht angezogen ist. 
+Die Schaltung ist sicher gegen Querströme und es können durch Fehler im 
+Programm des µC kaum Schäden entstehen. Das Relais sollte erst 
+umgeschaltet werden, wenn der Motor steht, dann gibt es keine Funken an 
+den Relaiskontakten.
+</p><p>Der Verdrahtungsaufwand insgesamt ist minimal und sogar kleiner als bei Motortreiber-ICs, wie dem <a href="http://www.rn-wissen.de/index.php/Getriebemotoren_Ansteuerung#Ansteuerung_mit_dem_Schaltkreis_L298" title="Getriebemotoren Ansteuerung">L298</a>, da keine zusätzlichen Bauteile benötigt werden. Daher ist die Schaltung insbesondere für Anfänger geeignet.
+</p><p>Vorteile sind:
+</p>
+<ul><li>tollerant gegen Fehler im µC Programm
+</li><li>hohe Strombelastbarkeit
+</li><li>sehr geringer Spannungsabfall (&lt; 1 V)
+</li><li>niedrige Kosten, auch bei hoher Leistung
+</li><li>das Relais kann stromlos geschaltet werden (wenig Verschleiß an Kontakten)
+</li></ul>
+<p>Nachteile sind:
+</p>
+<ul><li>hörbares "Klacken" beim Laufrichtungswechsel
+</li><li>zusätzlicher Stromverbrauch, wenn das Relais geschaltet ist
+</li><li>keine einfache Motorbremse
+</li></ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=3" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_MOS-FET"></a><h2>Ansteuerung mit MOS-FET</h2>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=4" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Neufassung"></a><h3>Neufassung</h3>
+<table style="margin: 1em; border: 2px solid rgb(0, 102, 51); background-color: rgb(166, 255, 211); font-size: 85%;">
+<tbody><tr>
+<td>
+</td><td>Dieser Artikel ist noch lange nicht vollständig. Der 
+Auto/Initiator hofft das sich weitere User am Ausbau des Artikels 
+beteiligen.
+<p><b>Das Ergänzen ist also ausdrücklich gewünscht!</b>    Besonders folgende Dinge würden noch fehlen:
+</p><p><i>Die Neufassung kann im momentanen Stand nur als Anregung verstanden werden.</i>
+</p><p>Insbesondere fehlen noch angepasste Schaltpläne.
+</p><p>Einige der Anmerkungen aus dem Abschnitt "Kritik an der 
+Schaltung" sind in der Neufassung noch nicht enthalten, die Beschreibung
+ von Verzögerungsgliedern müsste auch eine Erklärung enthalten, welche 
+Verzögerung mit welchen Werten erreicht wird.
+</p><p>Wenn die Neufassung komplett fertig ist, sollten die alten Texte weg.
+<i></i>
+</p>
+</td></tr></tbody></table>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=5" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Grundprinzip"></a><h3>Grundprinzip</h3>
+<p>Wenn man die Steuerung rein mit Halbleitern realiesieren will, bietet
+ sich die H Brückenschaltung (Vollbrücke) an.  An jeden Motoranschluß 
+kommt einen Halbbrücke, die den Anschluß mit GND oder der 
+Versorgungsspannung verbinden kann. Die fertigen <a href="http://www.rn-wissen.de/index.php/Getriebemotoren_Ansteuerung#Ansteuerung_mit_Treiber_IC_L293_D" title="Getriebemotoren Ansteuerung">Motorteiber ICs</a> sind auch entsprechend aufgebaut.
+Der Aufbau aus Einzelteilen wird vor allem gebraucht, wenn man kein passendes IC findet, z.B. bei hoher Leistung.
+</p><p>Bei den üblichen Batteriespannungen sind als Schaltelemete <a href="http://www.rn-wissen.de/index.php/Feldeffekttransistor#MOSFETS" title="Feldeffekttransistor">MOS-FETs</a>
+ die beste Wahl. Also (unipolaren) Transistoren, die quasi leistungslos 
+nur durch Spannungen geschaltet werden. Zu diesem Thema findet man 
+unzählige Beiträge im Roboternetz, denn die Schaltung ist nicht ganz 
+einfach.
+</p><p>Die Grundschaltung besteht aus 2 N-Kanal-MOS-FET und zwei 
+P-Kanal-MOS-FET, mit denen die Motoranschlüsse nach GND bzw. UB 
+geschaltet werden.  
+Auf die extra Freilaufdioden kann bei einer Vollbrücke mit modernen 
+MOSFETs meistens verzichtet werden, da die MOSFETs bereits hinreichend 
+gute Dioden enthalten.  Teilweise werden trotzdem zusätzliche <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_Elektronikbauteile&amp;action=edit" class="new" title="Im RN-Wiki verwendete Elektronikbauteile">Schottky-Dioden</a>
+ benutzt, um die Verluste etwas weiter zu reduzieren. Die Dioden werden 
+in Sperrichtung von den beiden Motoranschlüssen nach GND bzw. UB 
+geschaltet.
+Die Transistortypen werden entsprechend der benötigten Ströme und 
+Spannungen gewählt. Zu große Transistoren haben den Nachteil einer 
+großen Gatekapazität und benötigen daher aufwendigere Treiber.
+</p><p>Grundsätzlich muss die Beschaltung der Gate-Eingänge so erfolgen,
+ dass zum Starten des Motors die Transistoren einer Diagonale auf 
+"leitend" und die der anderen auf "sperrend" geschaltet werden. Zum 
+Anhalten des Motors werden z.B. die unteren auf leitend und die oberen 
+auf sperrend geschaltet  (Der Motor wird aufgrund des nicht 
+unerheblichen Bremsstroms von Transistor und Freilaufdiode stark 
+gebremst).
+Alternativ kann man auch alle Transistoren auf sperrend schalten, der 
+Motor läuft dann im Leerlauf aus.
+</p><p>Die Transistoren einer Seite dürfen nicht gleichzeitig auf "leitend" geschaltet werden, da dies einen Kurzschluss verursacht.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=6" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Elektrische_Ansteuerung_der_Gates"></a><h3>Elektrische Ansteuerung der Gates</h3>
+<p>Beim Umschalten der Transistoren entstehen Verluste - der Widerstand 
+wechselt von sperrend (sehr großer Widerstand) nach leitend (sehr 
+kleiner Widerstand) und umgekehrt.
+Zwischen beiden Enden des Schaltvorgangs befindet sich der Transistor in
+ der "Widerstandsphase" (weder ganz leitend, noch ganz sperrend), die 
+eine erhebliche Verlustleistung und damit Erwärmung mit sich bringt.
+</p><p>Deshalb sollte der Schaltvorgang schnell erfolgen, insbesondere wenn für eine <a href="http://www.rn-wissen.de/index.php/PWM" title="PWM">PWM</a>-Regelung
+ sehr oft geschaltet wird. Da zum Umschalten die durch den Aufbau des 
+MOSFETs bedingte Gatekapazität umgeladen werden muss, ist hierzu (sehr 
+kurzzeitig) ein hoher Stromfluss nötig. Zu schnell (&lt;100 ns) sollte 
+man wegen der Funkstörungen aber auch nicht schalten.
+</p><p>Für die P-Mosfets wird eine Spannung von 0 V bzw. etwa -10 V 
+realtiv zur postiven Versorgung gebraucht. Für die N-Mosfets reicht eine
+ Spannung von 0 V bzw. ca. 10 V, bei logic level Mosfets reichen 5 V.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=7" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Schaltung_direkt_am_Port"></a><h4>Schaltung direkt am Port</h4>
+<p>Eine Ansteuerung unmittelbar über den Ausgang eines Mikrocontrollers 
+(oder eines TTL-IC) ist schon wegen der benötigten Spannungen oft nur 
+für die N-MOSFETs möglich, und das auch nur bei Logic Level Fets. Bei 
+den P-<a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a> bemisst sich die Schaltspannung gegen UB und nur für ein UB von etwa 5-6 V könnte die Spannung passen.
+</p><p>Dass ein Portpin nur einen geringen Stromfluss (ca. 20 mA) 
+zulässt, ist ein weiteres Problem und verhindert einen schnellen 
+Schaltvorgang. 
+Diese Schaltungsversion ist für eher kleine Logic Level MOSFETs (bis 
+etwa 2 nF Gate Kapazität), bevorzugt ohne PWM, möglich.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=8" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Schaltung_mit_einem_Transistor"></a><h4>Schaltung mit einem Transistor</h4>
+<p>Eine einfache Steuerschaltung besteht aus einem Transistor-Schalter (Emitter nach GND)und einem Pull-Up-Widerstand. 
+</p><p>Der Vorteil liegt in der Einfachheit, der Nachteil liegt darin, 
+dass die Schaltung nicht sonderlich schnell vonstatten geht: Für die 
+Schaltung des FET muss die Gate-Kapazität transferiert werden, was 
+insbesondere beim Wechsel von 0 V nach U<sub>B</sub> einen Moment 
+dauert, da die Ladung durch den Widerstand hindurch muss. Ein kleinerer 
+Widerstand könnte hier helfen, verursacht allerdings einen nicht 
+unerheblichen Stromfluss im geschalteten Zustand.
+</p><p>Sinnvoll ist diese Version damit nur für die P-MOSFETs, wenn 
+diese nicht mit dem PWM Signal versorgt werden. Für die N Kanal Fets ist
+ es in der Regel besser direkt den Logicpegel und Logic Level Fets zu 
+nehmen.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=9" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Schaltung_mit_zwei_Transistoren"></a><h4>Schaltung mit zwei Transistoren</h4>
+<p>Eine bessere Ansteuerung sollte sich ergeben, wenn man zwei 
+Transistoren zur Gate-Ansteuerung verwendet: Einer schaltet gegen 0 V, 
+der andere gegen UC. So kann man erreichen, dass in beide Richtungen 
+rasch umgeschaltet werden kann.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=10" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Integrierte_Gate-Treiber"></a><h4>Integrierte Gate-Treiber</h4>
+<p>Statt der Beschaltung mit zwei Transistoren kann man auch einen integrierten <a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a>-Treiber
+ verwenden. Derartige ICs (z.B. ICL7667) sind darauf ausgelegt, 
+kurzfristig den für eine Umschaltung benötigten hohen Stromfluss zu 
+ermöglichen.
+</p><p>Es gibt auch Treiber-ICs (z.B. IR2111), die zur Ansteuerung der 
+oberen Transistoren eine Spannung oberhalb von UB erzeugen. Mit solchen 
+Highside-Treibern kann die H-Brücke auch aus 4 N-Kanal-Transistoren 
+gebaut werden, was den Vorteil hat, dass N-Kanal-FETs mit geringerem 
+Schaltwiderstand zu bekommen sind.  Bei den Treibern für highside 
+N-Kanal-Fets hat man aber oft eine Begrenzung des Tastverhältnisses.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=11" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Logische_Ansteuerung_der_Gates"></a><h3>Logische Ansteuerung der Gates</h3>
+<p>Nach der elektrischen Ansteuerung ist die logische Ansteuerung durch 
+den Mikrocontroller zu überlegen. In der H-Brücke sind zwei 
+problematische Zustände zu berücksichtigen:
+</p><p>1. Das offensichtliche Problem ist ein Kurzschluss: Wenn beide 
+Transistoren einer Seite auf leitend geschaltet werden ist das ein 
+Kurzschluss. Falls vorhanden brennt die Sicherung durch oder es wird 
+sogar etwas beschädigt.
+</p><p>2. Ein nicht so offensichtliches Problem rührt daher, dass der 
+Schaltvorgang nur mit endlicher Geschwindigkeit abläuft und der 
+Transistor auch schon vor Erreichen des Zielwertes der Gate-Spannung 
+erheblichen Strom leitet. Hierdurch kommt es zu einem Kurzschluss durch 
+den nicht mehr richtig gesperrten und den noch nicht richtig gesperrten 
+Transistor. Es reicht also nicht die beiden Transistoren gleichzeitig zu
+ schalten, sondern es wird eine kleine Verzögerung benötigt.
+</p><p>Die Stromspitze selbst liegt oft noch im Rahmen der Spezifikationen der Transistoren. 
+Allerdings hat die Stromspitze drei Auswirkungen: 
+</p>
+<ol><li> Die Transistoren erwärmen sich
+</li><li> Es kann an einem Messwiderstand zu einer Spannungsspitze kommen
+</li><li> Die Versorgungsspannung bricht kurzzeitig zusammen
+</li></ol>
+<p>Die Störung der Versorgungsspannung lässt sich ohne Oszilloskop kaum 
+messen. Insbesondere in umfangreicheren Schaltungen können Störungen an 
+ganz anderen Stellen (z.B. bei Sensoren) auftreten, die man dann nicht 
+gleich mit der Motorsteuerung in Verbindung bringt.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=12" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="softwarem.C3.A4.C3.9Fige_Ansteuerung"></a><h4>softwaremäßige Ansteuerung</h4>
+<p>Die einfachste Art der Ansteuerung besteht darin, die 4 Gates mit 4 Ausgängen des Controllers zu steuern.
+</p><p>Die korrekte Ansteuerung muss dann durch die Software garantiert 
+werden. 
+Eine Fehlschaltung der Software z.B. bei einem Absturz kann allerdings 
+zur Zerstörung der Schaltung führen, die Schaltung sollte also in jedem 
+Fall eine Sicherung haben.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=13" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Einfache.2C_gemeinsame_Ansteuerung"></a><h4>Einfache, gemeinsame Ansteuerung </h4>
+<p>Bei passender Spannung, können die Gates einer Seite jeweils 
+gemeinsam geschaltet werden. Bei einer Gate-Spannung von 0V sperrt der 
+N-<a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a> (U<sub>GS</sub>=0V), der P-<a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a> leitet bei dieser Gate-Spannung, da hier U<sub>GS</sub>=-UB ist. 
+</p><p>Bei einer Gate-Spannung von UB verhält es sich genau umgekehrt: Der N-<a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a> leitet (U<sub>GS</sub>=UB) und der P-<a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a> sperrt (U<sub>GS</sub>=0V)
+</p><p>Diese einfache Ansteuerung benötigt nur 2 Port-Pins, hat jedoch 
+den Nachteil, dass während des Umschaltens die oben beschriebenen 
+temporären Querströme auftreten können und deshalb eher schnell 
+geschaltet werden sollte. Die Ansteuerung mit nur einem Transistor ist 
+hier also nicht angebracht. Je höher die Spannung, desto schlimmer wird 
+das Problem beim Umschalten. Ohne extra Verzögerungen sind damit nur 
+Spannungen bis ca. 8 V möglich. 
+</p><p>Mit einer Parallelschaltung aus einem Widerstand und einer Diode 
+vor den Gates, kann man erreichen, dass die Transistoren schneller auf 
+sperrend als auf leitend schalten. Beim N-FET zeigt die Anode zum FET, 
+beim P-FET die Kathode.
+Damit sind dann auch etwas höhere Spannungen möglich, aber spätestens 
+bei ca. 20 V wird die maximale Gatespannung erreicht.
+</p><p>Eine mögliche Ausführung für etwa 8-15 V, ist es ein Gate Treiber
+ IC (z.B. ICL7667) zu nehmen, und durch Dioden und Widerstände zu den 
+Gates für eine Verzögerung beim Einschalten zu sorgen.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=14" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_logischer_Verkn.C3.BCpfung"></a><h4>Ansteuerung mit logischer Verknüpfung</h4>
+<p>Der Zustand eines dauerhaften Querstroms sollte besser Hardwaremäßig 
+vermieden werden. Zusätzlich kann die Logic die Zahl der IO Pins auf 2 
+oder 3 reduziert werden. Sinnvollerweise sollte dabei nur eine Leitung 
+die PWM Steuerung übernehmen.
+Mittels Logik-Bausteinen werden zwei Ausgänge des Controllers so 
+umgesetzt, dass die folgenden Zustände geschaltet werden können:
+</p>
+<ol><li> Motor-Stop: untere Transistoren leitend, obere sperrend (oder umgekehrt)
+</li><li> Motor-Vorlauf: 1. Diagonale leitend
+</li><li> Motor-Rücklauf: 2. Diagonale leitend
+</li><li> Motor-Leerlauf: Alle Transistoren sperrend
+</li></ol>
+<p>Der Motor Stop Zustand ist dabei nicht unbedingt nötig. Wie die Logic
+ genau aussieht hängt davon ab ob die Gate Treiber die Signale noch mal 
+invertieren. 
+In der wohl einfachsten Form, kann man die P MOSFETs über einfache 
+Transistortreiber langsam steuern. Die PWM Steurung geht dann nur mit 
+den N-FETs. Hier kann man Logic Level Typen nehmen, die man direkt von 
+Logic Gattern (z.B. 74HC...) ansteuern kann, oder bei größeren FETs mit 
+Gate Treibern.
+</p><p>Die Querstrom-Problematik beim Schalten kann hierbei 
+softwaremäßig gelöst werden, indem beim Umschalten jeweils kurz der 
+Leerlauf geschaltet wird, damit alle Transistoren sperren. Damit auch 
+Temporäre Querströme sicher vermieden werden können auch hier 
+Verzögerungselemente sinnvoll sein.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=15" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Heidingscher_Encoder_.28Beispiel_f.C3.BCr_Logic.29"></a><h5>Heidingscher Encoder (Beispiel für Logic) </h5>
+<p>Aufgrund der Kritik an der alten Schaltung(siehe <b>Alte Schaltungsbeschreibung</b>)
+ entschied ich mich einen neuen, einfachen sowie preisgünstigen Encoder 
+zu entwickeln, den man mit der 74series aufbauen kann. Die <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">74series</a>
+ sind mit 20 mA Treiberstrom natürlich kaum zum direkten Treiben 
+geeignet. Die Verzögerung müßte hier in die Treiber integriert sein.
+Die Logikanzeigen in den Grafiken sollen je einen Transistor bzw. Mosfet
+ darstellen. 
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=16" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="PR_Encoder"></a><h5>PR Encoder</h5>
+<p><a href="http://www.rn-wissen.de/index.php/Bild:Prtreiber.png" class="image" title="Bild:Prtreiber.png"><img src="Getriebemotoren_Ansteuerung-Dateien/Prtreiber.png" alt="Bild:Prtreiber.png" longdesc="/index.php/Bild:Prtreiber.png" height="292" width="699"></a>
+</p><p>Der PR Encoder(PWM-Richtung Encoder) ist mit zwei NOR Gates sowie eines Inverters aufgebaut, d.h. man kann ihn mit nur einem <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">IC(74HC(T)02)</a> aufbauen. Will mein 2 Encoder verwenden, empfiehlt sich den Inverter auszulagern <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">(74HC(T)04</a> oder <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">74HC(T)14</a>. Sollte man keinen Schmitt-Trigger benötigen empfiehlt sich aus Schnelligkeitsgründen die <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">74HC(T)04</a> Variante). 
+Alternativ ist es noch möglich sich den Inverter zu sparen, und die Ansteuerung für den P(WM) Kanal invertiert laufen zu lassen.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=17" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="PRK_Encoder"></a><h5>PRK Encoder</h5>
+<p><a href="http://www.rn-wissen.de/index.php/Bild:Prktreiber.png" class="image" title="Bild:Prktreiber.png"><img src="Getriebemotoren_Ansteuerung-Dateien/Prktreiber.png" alt="Bild:Prktreiber.png" longdesc="/index.php/Bild:Prktreiber.png" height="341" width="690"></a>
+</p><p>Der Prk-Encoder(<a href="http://www.rn-wissen.de/index.php/PWM" title="PWM">PWM</a>-Richtung-Kurzschluss-Encoder)
+ ist eine Erweiterung des PR-Encoders. Er erlaubt es zusätzlich, die 
+Motoren durch einen Kurzschluss zu stoppen.
+Aufgebaut werden kann dieser aus 1 NOR und 1 NAND Gate. Dabei werden 3 
+NAND-Gates als Inverter beschaltet (d.h. eine Leitung, die übrigen 
+bleiben auf VCC).
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=18" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Support"></a><h4>Support</h4>
+<p>Fragen einfach in das Forum posten, oder mich anschreiben (User s.o.)
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=19" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Alte_Schaltungsbeschreibung"></a><h3>Alte Schaltungsbeschreibung</h3>
+<div style="margin: 1em; padding: 1em; border: 2px solid rgb(255, 0, 64); background-color: rgb(255, 255, 255);">
+<p>Achtung! Die Schaltung ist so nicht zu verwenden! Siehe unter <b>Kritik an der Schaltung</b>
+</p>
+</div>
+<p>Wesentlich günstiger und auch beliebter ist die Ansteuerung von 
+Motoren mit MOS-FETs. Also Transistoren, die quasi leistungslos nur 
+durch Spannungen geschaltet werden und extrem hohe Ströme verkraften. Zu
+ diesem Thema findet man unzählige Beiträge im Roboternetz. Eine der 
+interessantesten Schaltungen, die im Roboternetz vorgestellt wurde, 
+dürfte diese sein:
+</p><p><br>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:Hbrueckemosfet.gif" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/Hbrueckemosfet.gif" alt="" longdesc="/index.php/Bild:Hbrueckemosfet.gif" height="582" width="799"></a></span></div></div>
+<p><br>
+Anmerkung: Den 74HC26N gibts wohl nicht , nur die TTL-Version <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">74LS26</a>, die HC-Mos-Version lautet <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">74HC03</a>.
+</p><p>Eine sogenannte H-Brücke, die nur aus zwei MOSFETSs und einem 
+Logik-IC besteht. Mit zwei Controllerports kann diese Schaltung sowohl 
+Geschwindigkeit als auch Drehrichtung regeln. Für die Geschwindigkeit 
+ist ein sogenannter <a href="http://www.rn-wissen.de/index.php/PWM" title="PWM">PWM</a>-Port
+ notwendig. Also ein Port, der durch ein gepulstes Signal den Motor 
+etlichemal innerhalb einer Sekunde ein- und ausschaltet und somit quasi 
+die Leistung regelt (siehe <a href="http://www.rn-wissen.de/index.php/PWM" title="PWM">PWM</a>).
+Die
+ Schaltung ist so konstruiert, dass immer nur zwei Transistoren 
+durchschalten. Auf diese Weise fließt einmal der Strom von links oben 
+nach rechts unten und einmal von rechts oben nach links unten, der Motor
+ wird also ähnlich wie bei der Relaisschaltung umgepolt. 
+Bei niedriger <a href="http://www.rn-wissen.de/index.php/PWM" title="PWM">PWM</a>_Frequenz sollte die Schaltung durchaus für einige Ampere geeignet sein, wobei ca. 8 bis 13 V ideal sein sollten.
+</p><p>Das Logic-IC wurde durch 3x <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_Transistoren&amp;action=edit" class="new" title="Im RN-Wiki verwendete Transistoren">BC547</a> Transitoren ersetzt.
+</p><p><br>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:Hbr%C3%BCckenmosfet_BD547.PNG" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/900px-Hbrckenmosfet_BD547.PNG" alt="" longdesc="/index.php/Bild:Hbr%C3%BCckenmosfet_BD547.PNG" height="510" width="900"></a></span></div></div>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=20" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Kritik_an_der_Schaltung"></a><h4>Kritik an der Schaltung</h4>
+<p>Diese Schaltung wird <a href="http://www.roboternetz.de/phpBB2/viewtopic.php?t=33067&amp;sid=892e80c6cd2d003292e607bcd7a7123aim" class="external text" title="http://www.roboternetz.de/phpBB2/viewtopic.php?t=33067&amp;sid=892e80c6cd2d003292e607bcd7a7123aim" rel="nofollow">hier Forum von mehreren Leuten, u.A. Ratber, shaun, massiv kritisiert</a>.
+</p><p>Ich habe leider nicht das Wissen eine bessere Lösung zu liefern. 
+Das Problem sind die Querströme: Im Umschaltmoment sind highside und 
+lowside switch für kurze Zeit beide leitend. Das entspricht einem 
+Kurzschluss der Versorgungsleitung bei jedem Umschalten mit allen damit 
+verbundenen Problemen (Erwärmung, Schwingung, Sicherungen, Reset). Aus 
+diesem Grund sind NAND-Gatter nicht geeignet!
+</p><p>Zum Umschalten muss man
+</p>
+<ul><li>den bisher leitenden <a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a> ausschalten,
+</li><li>dann etwas warten,
+</li><li>und dann den nächsten <a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a> schließen.
+</li></ul>
+<p>Dies kann man erreichen, indem man den Einschaltmoment 
+</p>
+<ul><li>durch RC-Glieder verzögert und 
+</li><li>den Ausschaltmoment durch Dioden beschleunigt.
+</li></ul>
+<p>Die entstehenden Schaltungen sind komplex, benötigen viele Bauteile und sind fehleranfällig.
+</p><p><br>
+Am sinnvollsten sind integrierte <a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a>-Treiber. Diese haben oft eine einstellbare Tot-Zeit (<i>Dead-Time</i>), können hohe Leistungen zum Umladen der Gatekapazität liefern und beachten andere Effekte wie <i>Propagation-Time</i>, Veränderung des Source Potentials beim Highside-switch, etc.
+</p><p><b>Erklärung von shaun:</b>
+</p><p>Die gezeigte Schaltung taugt auch nur als Prinzipschaltung 
+bedingt, da man einen variierenden Aufwand in eine sichere Verriegelung 
+investieren müsste. Bei fixer und nicht zu hoher Betriebsspannung könnte
+ man mit RD-Kombinationen in den Gateleitungen das Ausschalten 
+beschleunigen und das Einschalten verzögern, so dass die Querleitung 
+wegfällt. Allerdings bewirkt diese simple R-Cg-Verzögerung größere 
+Schaltverluste. 
+</p><p>Setzt man die Verzögerung vor dedizierte Treiber, müssen diese 
+wiederum leistungsfähig genug zum Umladen der Gates sein und bis an die 
+Versorgung heranreichen, weshalb man an diesem Punkt überlegen sollte, 
+ob 95% duty cycle nicht auch reichen würden <i>(Anmerkung: Bezug auf bootstrapping?)</i>
+ und man integrierte Treiber für reine N-Kanal-Bestückung einsetzen 
+sollte - spart dann wieder etwas Verluste am Highside-Switch, weil 
+N-Kanäler gleicher Generation und Leistungsklasse einen niedrigeren 
+Rds(on) als ihre P-Pendants haben.
+</p>
+<table style="margin: 1em; border: 2px solid rgb(0, 102, 51); background-color: rgb(166, 255, 211); font-size: 85%;">
+<tbody><tr>
+<td>
+</td><td>Dieser Artikel ist noch lange nicht vollständig. Der 
+Auto/Initiator hofft das sich weitere User am Ausbau des Artikels 
+beteiligen.
+<p><b>Das Ergänzen ist also ausdrücklich gewünscht!</b>    Besonders folgende Dinge würden noch fehlen:
+</p><p><i>Eine vernünftige diskrete Ansteuerung für eine H-Brücke.</i>
+Korrektur auf Rechtschreibfehler, Zeichensetzung, Schreibstil, Fachausdrücke. Gibt's denn keinen, der etwas verbessern möchte?<i></i>
+</p>
+</td></tr></tbody></table>
+<p><br>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=21" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_einem_LeistungsOPV"></a><h2>Ansteuerung mit einem LeistungsOPV</h2>
+<p>Die wohl preislich und platztechnisch günstigste Alternative zur 
+Ansteuerung von Motoren in H-Brücken ist die Verwendung von 
+(Leistungs-)Operationsverstärkern oder Audioverstärker ICs. 
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=22" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Heidingscher_Motortreiber"></a><h3>Heidingscher Motortreiber</h3> 
+<p>Bei dem Heidingschen Motortreiber wird jeder Anschluss des Motors mit
+ einem Ausgang des Operationsverstärker verbunden, die Eingänge des OPVs
+ selbst als Komparator. Diese Methode ist für kleine und mittlere 
+Motoren(=&lt; 1A) und mäßige PWM-Frequenzen(&lt;10kHz) gut geeignet. Ein
+ RB35 von Conrad kann damit problemlos angesteuert werden. Bei zu hohen <a href="http://www.rn-wissen.de/index.php/PWM" title="PWM">PWM</a>-Frequenzen
+ ist die SlewRate von vielen OPVs zu gering und die entsprechenden OPVs 
+sind dann viel zu teuer und man sollte eine Ansteuerung per <a href="http://www.rn-wissen.de/index.php?title=MOSFET&amp;action=edit" class="new" title="MOSFET">MOSFET</a> (s.o.) bevorzugen. Momentan hat sich der <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">TCA 0372 DP1</a> (0,57€ bei Reichelt) Verwendung gefunden. 
+Weitere Informationen sind in <a href="http://www.roboternetz.de/phpBB2/viewtopic.php?t=38412" class="external text" title="http://www.roboternetz.de/phpBB2/viewtopic.php?t=38412" rel="nofollow">diesem Forumsbeitrag</a> zu finden.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=23" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Gleichstromansteuerung"></a><h3>Gleichstromansteuerung</h3>
+<p>Eine weitere Möglichkeit ist es, dem Operationsverstärker eine 
+Gleichspannung vorzugeben, mit denen der OPV die Motoren ansteuert. 
+Diese Methode eignet sich sehr gut für analoge Schaltkreise. Der 
+Wirkungsgrad ist allerdings nicht der beste, da die restliche Spannung 
+in Wärme umgesetzt wird. Zudem werden viele weitere Komponenten 
+benötigt, was den Aufbau teurer und fehleranfälliger macht.
+Der entsprechende Schaltkreis ist im Datenblatt des TCA 0372 DP1 zu 
+finden.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=24" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_Treiber_ICs"></a><h2>Ansteuerung mit Treiber ICs </h2>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=25" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_Treiber_IC_L293_D"></a><h3>Ansteuerung mit Treiber IC L293 D</h3>
+<p>Dies ist ohne Zweifel die am häufigsten genutzte Ansteuerung bei 
+Roboter-Bastlern: Man nimmt einfach das IC L293D, denn darin sind sogar 
+zwei H-Brücken enthalten. Also mit einem IC lassen sich ohne weitere 
+externe Bauteile gleich zwei Motoren ansteuern. Zwar nur bis ca. 600mA, 
+aber das reicht oft schon für kleinere bis mittlere Roboteranwendungen 
+aus.
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:L293Pinout.JPG" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/L293Pinout.JPG" alt="" longdesc="/index.php/Bild:L293Pinout.JPG" height="203" width="375"></a></span></div></div>
+<p><br>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:Hbrueckel293d.gif" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/Hbrueckel293d.gif" alt="" longdesc="/index.php/Bild:Hbrueckel293d.gif" height="451" width="619"></a></span></div></div>
+<p>Wie aus dem Schaltbild zu ersehen ist, werden für die Ansteuerung 
+jedes Motors 3 Ports benötigt. Die Enable-Leitung führt man oft auf 
+einen <a href="http://www.rn-wissen.de/index.php/PWM" title="PWM">PWM</a>-Port welcher wie bei der <a href="http://www.rn-wissen.de/index.php?title=MOS-FET&amp;action=edit" class="new" title="MOS-FET">MOS-FET</a>
+ Schaltung oben die Geschwindigkeit regelt. Die beiden anderen Ports 
+geben die Drehrichtung an. Immer wenn die Ports unterschiedliche 
+Polarität haben dreht der Motor in eine bestimmte Richtung, je nachdem 
+wo Low und High anliegt. Das Besondere ist, dass wenn an beiden Ports 
+der gleiche Pegel anliegt, also zweimal Low oder High, dann wird nämlich
+ der Motor kurzgeschlossen, das dann als Bremse fungiert. Das Bremsen 
+kann bei Robotern durchaus nützlich sein. Zudem ist bei schnellen 
+Richtungswechseln immer zu empfehlen zuerst kurz zu bremsen, um nicht 
+den Motor oder Motortreiber zu stark zu belasten.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=26" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_dem_Schaltkreis_L298"></a><h3>Ansteuerung mit dem Schaltkreis L298</h3>
+<p>Der Schaltkreis <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">L298</a> ist quasi der große Bruder des <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">L293D</a>. Er beinhaltet auch zwei komplette H-Brücken, kann also auch zwei Motoren ansteuern. Die Pinbelegung ist ebenfalls dem <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">L293D</a> sehr ähnlich, jedoch verfügt er über eine andere Bauform:
+</p><p><br>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:L298Pinout.JPG" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/L298Pinout.JPG" alt="" longdesc="/index.php/Bild:L298Pinout.JPG" height="289" width="498"></a></span></div></div>
+<p><br>
+Der wichtigste Unterschied besteht jedoch darin, dass jede H-Brücke bei <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">L298</a>
+ bis zu 2 A belastet werden kann. Damit lassen sich also schon 
+wesentlich größere Motoren ansteuern. Ein weiterer Vorzug sind die 
+sogenannten SENSE-Ausgänge, über die der komplette Strom fließt. Oft 
+wird hier ein Hochlastwiderstand  angeschlossen, um aus der abfallenden 
+Spannung den Strom berechnen zu können. Dies machen sich Steuerungen wie
+ <a href="http://www.roboternetz.de/phpBB2/viewtopic.php?t=2741" class="external text" title="http://www.roboternetz.de/phpBB2/viewtopic.php?t=2741" rel="nofollow">RN-Motor</a>
+ oder aber andere Schrittmotoransteuerungen zunutze, um den Strom zu 
+regeln. Benötigt man keine Strommessung, so müssen die Sense-Ausgänge 
+direkt mit GND verbunden werden. Anders als beim <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">L293D</a> werden hier externe Freilaufdioden gebraucht.
+</p><p><br>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:Hbrueckel298.gif" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/Hbrueckel298.gif" alt="" longdesc="/index.php/Bild:Hbrueckel298.gif" height="451" width="619"></a></span></div></div>
+<p><br>
+Ein weiteres Schaltbild gibt es hier <a href="http://www.roboternetz.de/bilder/schaltung298getriebe.gif" class="external autonumber" title="http://www.roboternetz.de/bilder/schaltung298getriebe.gif" rel="nofollow">[1]</a>
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=27" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Ansteuerung_mit_L620x"></a><h3>Ansteuerung mit L620x</h3>
+<p>Der Schaltkreis <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">L620x</a>
+ stellt eine etwas modernere Alternative zur L298-Ansteuerung dar. Die 
+Ansteuerung ist praktisch identisch, der Schaltungsaufbau in etwa 
+gleich. Beim L620x sind keine externen Freilaufdioden mehr notwendig, 
+dafür ist ein Kondensator und zwei Dioden für die interne 
+Spannungserzeugung notwendig.
+Ein großer Vorteil  ist auch, dass kein extra Kühlkörper mehr notwendig 
+ist. Durch die Verwendung von niederohmigen FETs im L620x fällt am 
+Motortreiber weniger Spannung ab und die Verlustleistung des 
+Motortreiber-ICs wird dadurch deutlich geringer. Durch die erhältliche 
+DIP-Bauform lassen sich diese Motortreiber bei Defekt auch schnell und 
+einfach auswechseln. Viele integrierte Schutzfunktionen im L620x sorgen 
+dafür, dass der Chip nicht so einfach zerstört werden kann.
+</p><p>In der Praxis sind die angegeben 2,8 A (für den L6205) jedoch mit
+ Vorsicht zu genießen. Bei Testlayouts erwärmten sich die ICs bereits 
+bei 2 A Dauerstrom (PWM) oft so stark, dass die automatische 
+Temperaturabschaltung reagierte, somit wird man vermutlich ohne Kühlung 
+oder großes Kühllayout auf der Platine auch nicht mehr als beim <a href="http://www.rn-wissen.de/index.php?title=Im_RN-Wiki_verwendete_ICs&amp;action=edit" class="new" title="Im RN-Wiki verwendete ICs">L298</a> erreichen.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=28" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="L6202_f.C3.BCr_1_Motor"></a><h2>L6202 für 1 Motor</h2>
+<p><a href="http://www.rn-wissen.de/index.php/Bild:L6202Anwendung.png" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/800px-L6202Anwendung.png" alt="" longdesc="/index.php/Bild:L6202Anwendung.png" height="436" width="800"></a>
+</p><p><br>
+(R1 schaltet die H-Brücke bei fehlendem PWM-Signal ab und ist 
+entbehrlich. R2 und C6 bilden ein sog. Snubber-Netzwerk, welches zur 
+Entstörung dient.)
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=29" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="L6205_f.C3.BCr_2_Motoren"></a><h2>L6205 für 2 Motoren</h2>
+<p><a href="http://www.rn-wissen.de/index.php/Bild:L6205ic.gif" class="image" title="Bild:l6205ic.gif"><img src="Getriebemotoren_Ansteuerung-Dateien/L6205ic.gif" alt="Bild:l6205ic.gif" longdesc="/index.php/Bild:L6205ic.gif" height="220" width="316"></a> <a href="http://www.rn-wissen.de/index.php/Bild:L6205pinbelegung.gif" class="image" title="Bild:l6205pinbelegung.gif"><img src="Getriebemotoren_Ansteuerung-Dateien/L6205pinbelegung.gif" alt="Bild:l6205pinbelegung.gif" longdesc="/index.php/Bild:L6205pinbelegung.gif" height="328" width="277"></a>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:L6205.gif" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/L6205.gif" alt="" longdesc="/index.php/Bild:L6205.gif" height="376" width="598"></a></span></div></div>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=30" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="weitere_Treiber-ICs"></a><h3> weitere Treiber-ICs </h3>
+<p>Es gibt noch mehr ähnliche Treiber ICs, die hier nur kurz aufgezählt 
+werden sollten. Für Details sollte man ohnehin ins Datenblatt schauen.
+</p>
+<ul><li>L293B, L293E   ähnlich dem L293 D, aber max. 1 A, braucht externe Freilaufdioden
+</li><li>TLE5205   max. 5 A , nur eine Brücke
+</li></ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=31" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Noch_mehr_Power_gew.C3.BCnscht.3F"></a><h2>Noch mehr Power gewünscht?</h2>
+<p>Obwohl der L298 schon einiges abdeckt, so kommt er spätestens bei den
+ Scheibenwischermotoren langsam an seine Grenzen. Bei starker Belastung 
+können solche Motoren kurzzeitig bis ca. 10 A und mehr ziehen. Für solch
+ starke Motoren gibt es jetzt einen ganz interessanten Motorchip aus dem
+ Kfz-Bereich: vnh3sp (Datenblatt im Roboternetz Download-Bereich). 
+Mit ihm lassen sich sogar recht große Motoren ansteuern; vorausgesetzt, 
+man kühlt ihn entsprechend, so verträgt der Chip bis zu 30 A. Aber 
+selbst ohne Kühlung bietet er bedeutet mehr Leistung als der L298. Das 
+Schöne, die Ansteuerung ist kaum anders als beim L298 und L293D.
+</p><p>Kleiner Nachteil: Da es ein SMD-Chip mit 1mm Kontaktabstand ist, 
+muss man schon eine geeignete Platine (spezielles Layout mit 
+Kühlflächen) und etwas Löterfahrung besitzen. Inzwischen gibt es aber 
+schon verschiedene RN-Projekte mit dem Chip (RN-Power, RN-Mini 
+H-Bridge), Platinen und Chip können über den <a href="http://www.shop.robotikhardware.de/shop/catalog/index.php" class="external text" title="http://www.shop.robotikhardware.de/shop/catalog/index.php" rel="nofollow">Robotikhardware.de-Platinenservice</a> bezogen werden. 
+</p><p><br>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:Minihbridge_ansteuerung.gif" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/Minihbridge_ansteuerung.gif" alt="" longdesc="/index.php/Bild:Minihbridge_ansteuerung.gif" height="482" width="512"></a></span></div></div>
+<p><br>
+Alternativ zum <a href="http://www.rn-wissen.de/index.php/SMD" title="SMD">SMD</a>-Chip
+ VNH3SP30 gibt es noch die Alternative VNH2SP30. Dieser Chip erlaubt 
+zwar nur Motorspannungen zwischen 6 und 16 Volt, jedoch hat er einen 
+wesentlich geringeren Innenwiderstand und wird deshalb nur etwa halb so 
+warm wie der VNH3SP30. 
+Aus diesem Grund eignet er sich auch ideal für kleine 
+Doppelmotorsteuerungen.
+Natürlich gibt's auch hierfür ein Projekt und eine Bauanleitung, siehe <a href="http://www.rn-wissen.de/index.php/RN-VNH2Dualmotor" title="RN-VNH2Dualmotor">RN-VNH2Dualmotor</a>
+</p><p>Das Schöne ist, dass es dieses RN-Projekt jetzt auch als Fertigmodul gibt!
+</p><p><br>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:Rndualmotoransteuerung.jpeg" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/Rndualmotoransteuerung.jpeg" alt="" longdesc="/index.php/Bild:Rndualmotoransteuerung.jpeg" height="773" width="499"></a></span></div></div>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=32" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Endstufen_mit_I2C-Bus_.2F_RS232"></a><h2>Endstufen mit I2C-Bus / RS232</h2>
+<div class="thumb tright"><div style="width: 182px;"><a href="http://www.rn-wissen.de/index.php/Bild:Motctrl.png" class="internal" title="Motoransteuerung über RS232, I2C, RC"><img src="Getriebemotoren_Ansteuerung-Dateien/180px-Motctrl.png" alt="Motoransteuerung über RS232, I2C, RC" longdesc="/index.php/Bild:Motctrl.png" height="75" width="180"></a>  <div class="thumbcaption"><div class="magnify" style="float: right;"><a href="http://www.rn-wissen.de/index.php/Bild:Motctrl.png" class="internal" title="vergrößern"><img src="Getriebemotoren_Ansteuerung-Dateien/magnify-clip.png" alt="vergrößern" height="11" width="15"></a></div>Motoransteuerung über RS232, I2C, RC</div></div></div>Verwendet
+ man eine der oben vorgestellten H-Bridges, so wird immer vorausgesetzt,
+ dass ein PWM-Signal und mehrere Ports zur Ansteuerung bereitstehen. Ist
+ dies nicht der Fall, weil diese vielleicht schon belegt sind, so lassen
+ sich Endstufen durch einen zusätzlichen Microcontroller auch um 
+beliebige Schnittstellen erweitern. Insbesondere über I2C lassen sich 
+dadurch mehrere Motorboards über einen einzigen Bus ansteuern. Ein 
+Beispiel ist der programmierte Controller MOTCTRL, der speziell für 
+diese Aufgabe gedacht ist. Die Grundschaltung sieht man in der rechten 
+Skizze.
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=33" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Und_nie_vergessen_Motoren_zu_entst.C3.B6ren"></a><h2>Und nie vergessen Motoren zu entstören</h2>
+<p>Das Entstören dient dazu, eine Ausbreitung von Funkstörungen durch 
+das sogenannte "Bürstenfeuer" zu verhindern. Und so wird's gemacht:
+</p><p><br>
+</p>
+<div class="center"><div class="floatnone"><span><a href="http://www.rn-wissen.de/index.php/Bild:Entstoerung.gif" class="image" title=""><img src="Getriebemotoren_Ansteuerung-Dateien/Entstoerung.gif" alt="" longdesc="/index.php/Bild:Entstoerung.gif" height="334" width="538"></a></span></div></div>
+<p>Bei Steuerung des Motors per PWM sind die Induktivitäten hilfreich. 
+Sie verhindern das bei den steilen Flanken des PWM Signals große Ströme 
+duch die Kondensatoren fließen. Alternativ zu den 2 Kondensatoren 
+(C2,C3) gegen das Gehäuse kann das Gehäuse auch direkt an Masse 
+angeschlosssen werden. Bei einer PWM Steuerung ist das die bessere 
+Lösung.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=34" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Siehe_auch"></a><h2>Siehe auch</h2>
+<ul><li> <a href="http://www.rn-wissen.de/index.php/Getriebemotoren" title="Getriebemotoren">Getriebemotoren</a>
+</li><li> <a href="http://www.rn-wissen.de/index.php/RN-VNH2Dualmotor" title="RN-VNH2Dualmotor">RN-VNH2Dualmotor</a>
+</li></ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit&amp;section=35" title="Getriebemotoren Ansteuerung">bearbeiten</a>]</div><a name="Weblinks"></a><h2>Weblinks</h2>
+<ul><li> <a href="http://www.roboternetz.de/phpBB2/motordrehmoment.php" class="external text" title="http://www.roboternetz.de/phpBB2/motordrehmoment.php" rel="nofollow">Drehmoment Berechnung</a>
+</li><li> <a href="http://www.roboternetz.de/motoruebersicht.html" class="external text" title="http://www.roboternetz.de/motoruebersicht.html" rel="nofollow">Motoren Übersicht</a>
+</li><li> <a href="http://www.shop.robotikhardware.de/shop/catalog/index.php?cPath=65" class="external text" title="http://www.shop.robotikhardware.de/shop/catalog/index.php?cPath=65" rel="nofollow">Bauteilesets</a>
+</li><li> <a href="http://www.roboternetz.de/robotertutorial.html" class="external text" title="http://www.roboternetz.de/robotertutorial.html" rel="nofollow">Roboter-Tutorial</a>
+</li><li> <a href="http://www.roboternetz.de/" class="external text" title="http://www.roboternetz.de" rel="nofollow">Roboternetz Forum</a>
+</li></ul>
+
+<!-- Saved in parser cache with key d00b0794:pcache:idhash:1368-0!1!0!0!!de!2 and timestamp 20101222005014 -->
+<div class="printfooter">
+Von "<a href="http://www.rn-wissen.de/index.php/Getriebemotoren_Ansteuerung">http://www.rn-wissen.de/index.php/Getriebemotoren_Ansteuerung</a>"</div>
+	    <div id="catlinks"><p class="catlinks"><a href="http://www.rn-wissen.de/index.php?title=Spezial:Categories&amp;article=Getriebemotoren_Ansteuerung" title="Spezial:Categories">Seitenkategorien</a>: <a href="http://www.rn-wissen.de/index.php/Kategorie:Artikelausbau" title="Kategorie:Artikelausbau">Artikelausbau</a> | <a href="http://www.rn-wissen.de/index.php/Kategorie:Robotikeinstieg" title="Kategorie:Robotikeinstieg">Robotikeinstieg</a> | <a href="http://www.rn-wissen.de/index.php/Kategorie:Praxis" title="Kategorie:Praxis">Praxis</a> | <a href="http://www.rn-wissen.de/index.php/Kategorie:Grundlagen" title="Kategorie:Grundlagen">Grundlagen</a> | <a href="http://www.rn-wissen.de/index.php/Kategorie:Motoren" title="Kategorie:Motoren">Motoren</a> | <a href="http://www.rn-wissen.de/index.php/Kategorie:Elektronik" title="Kategorie:Elektronik">Elektronik</a></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main" class="selected"><a title="View the content page [control-c]" accesskey="c" href="http://www.rn-wissen.de/index.php/Getriebemotoren_Ansteuerung">Artikel</a></li><li id="ca-talk"><a title="Discussion about the content page [control-t]" accesskey="t" href="http://www.rn-wissen.de/index.php/Diskussion:Getriebemotoren_Ansteuerung">Diskussion</a></li><li id="ca-edit"><a title="You can edit this page. Please use the preview button before saving. [control-e]" accesskey="e" href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=edit">bearbeiten</a></li><li id="ca-history"><a title="Past versions of this page. [control-h]" accesskey="h" href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;action=history">Versionen</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-personal">
+	  <h5>'Persönliche Werkzeuge</h5>
+	  <div class="pBody">
+	    <ul>
+	    <li id="pt-login"><a title="You are encouraged to log in, it is not mandatory however. [control-o]" accesskey="o" href="http://www.rn-wissen.de/index.php?title=Spezial:Userlogin&amp;returnto=Getriebemotoren_Ansteuerung">Anmelden</a></li>	    </ul>
+	  </div>
+	</div>
+
+	
+	
+	
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-Hauptthemen">
+	  <h5>Hauptthemen</h5>
+	  <div class="pBody">
+	    <ul>
+	    	      <li id="n-Robotikeinstieg"><a href="http://www.rn-wissen.de/index.php/Kategorie:Robotikeinstieg">Robotikeinstieg</a></li>
+	     	      <li id="n-Mechanik"><a href="http://www.rn-wissen.de/index.php/Kategorie:Mechanik">Mechanik</a></li>
+	     	      <li id="n-Elektronik"><a href="http://www.rn-wissen.de/index.php/Kategorie:Elektronik">Elektronik</a></li>
+	     	      <li id="n-Sensoren"><a href="http://www.rn-wissen.de/index.php/Kategorie:Sensoren">Sensoren</a></li>
+	     	      <li id="n-Microcontroller"><a href="http://www.rn-wissen.de/index.php/Kategorie:Microcontroller">Microcontroller</a></li>
+	     	      <li id="n-Motoren"><a href="http://www.rn-wissen.de/index.php/Kategorie:Motoren">Motoren</a></li>
+	     	      <li id="n-Software"><a href="http://www.rn-wissen.de/index.php/Kategorie:Software">Software</a></li>
+	     	      <li id="n-Quellcode-Bascom"><a href="http://www.rn-wissen.de/index.php/Kategorie:Quellcode_Bascom">Quellcode Bascom</a></li>
+	     	      <li id="n-Quellcode-C"><a href="http://www.rn-wissen.de/index.php/Kategorie:Quellcode_C">Quellcode C</a></li>
+	     	      <li id="n-Quellc.Assembler-AVR"><a href="http://www.rn-wissen.de/index.php/Kategorie:Quellcode_Assembler_AVR">Quellc.Assembler AVR</a></li>
+	     	      <li id="n-Projekte/Schaltungen"><a href="http://www.rn-wissen.de/index.php/Kategorie:Projekte">Projekte/Schaltungen</a></li>
+	     	      <li id="n-Praxis"><a href="http://www.rn-wissen.de/index.php/Kategorie:Praxis">Praxis</a></li>
+	     	      <li id="n-Grundlagen"><a href="http://www.rn-wissen.de/index.php/Kategorie:Grundlagen">Grundlagen</a></li>
+	     	      <li id="n-Buchvorstellungen"><a href="http://www.rn-wissen.de/index.php/Buchvorstellungen">Buchvorstellungen</a></li>
+	     	      <li id="n-Abkürzungen"><a href="http://www.rn-wissen.de/index.php/Kategorie:Abk%C3%BCrzung">Abkürzungen</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class="portlet" id="p-navigation">
+	  <h5>Navigation</h5>
+	  <div class="pBody">
+	    <ul>
+	    	      <li id="n-mainpage"><a title="Visit the Main Page [control-z]" accesskey="z" href="http://www.rn-wissen.de/index.php/Hauptseite">Hauptseite</a></li>
+	     	      <li id="n-randompage"><a title="Load a random page [control-x]" accesskey="x" href="http://www.rn-wissen.de/index.php/Spezial:Random">Zufälliger Artikel</a></li>
+	     	      <li id="n-Testseite-für-Autoren"><a href="http://www.rn-wissen.de/index.php/Testseite">Testseite für Autoren</a></li>
+	     	      <li id="n-FAQ"><a href="http://www.rn-wissen.de/index.php/Hilfe:FAQ">FAQ</a></li>
+	     	      <li id="n-help"><a title="The place to find out." href="http://www.rn-wissen.de/index.php/RN-Wissen:Hilfe">Hilfe</a></li>
+	     	      <li id="n-Neuste-Bilder"><a href="http://www.rn-wissen.de/index.php/Spezial:Newimages">Neuste Bilder</a></li>
+	     	      <li id="n-Löschkandidaten"><a href="http://www.rn-wissen.de/index.php/Kategorie:L%C3%B6schkandidat">Löschkandidaten</a></li>
+	     	      <li id="n-Wunschthemen"><a href="http://www.rn-wissen.de/index.php/Wunschthemen">Wunschthemen</a></li>
+	     	      <li id="n-Aktuelles"><a href="http://www.rn-wissen.de/index.php/Aktuelles">Aktuelles</a></li>
+	     	      <li id="n-Unterstützen"><a href="http://www.rn-wissen.de/index.php/RN-Wissen:Site_support">Unterstützen</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Suche</label></h5>
+	  <div class="pBody">
+	    <form name="searchform" action="/index.php/Spezial:Search" id="searchform">
+	      <input id="searchInput" name="search" accesskey="f" type="text">
+	      <input name="go" class="searchButton" id="searchGoButton" value="Los" type="submit">&nbsp;<input name="fulltext" class="searchButton" value="Suche" type="submit">
+	    </form>
+	  </div>
+	</div>
+	<div class="portlet" id="p-tb">
+	  <h5>Werkzeuge</h5>
+	  <div class="pBody">
+	    <ul>
+		  		  <li id="t-whatlinkshere"><a title="List of all wiki pages that link here [control-j]" accesskey="j" href="http://www.rn-wissen.de/index.php/Spezial:Whatlinkshere/Getriebemotoren_Ansteuerung">Was zeigt hierhin</a></li>
+		  		  <li id="t-recentchangeslinked"><a title="Recent changes in pages linked from this page [control-k]" accesskey="k" href="http://www.rn-wissen.de/index.php/Spezial:Recentchangeslinked/Getriebemotoren_Ansteuerung">Verlinkte Seiten</a></li>
+		                	      	      	      	      	      	      	      <li id="t-upload"><a title="Upload images or media files [control-u]" accesskey="u" href="http://www.rn-wissen.de/index.php/Spezial:Upload">Hochladen</a></li>	      	      <li id="t-specialpages"><a title="List of all special pages [control-q]" accesskey="q" href="http://www.rn-wissen.de/index.php/Spezial:Specialpages">Spezialseiten</a></li>	      	      	      <li id="t-print"><a href="http://www.rn-wissen.de/index.php?title=Getriebemotoren_Ansteuerung&amp;printable=yes">Druckversion</a></li>
+      
+	  	  
+	      	    </ul>
+	  </div>
+	</div>
+
+
+<div class="pBody">
+<center>	
+	
+<script type="text/javascript"><!--
+google_ad_client = "pub-7479754841705808";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+//2007-07-13: RN-Wissen
+google_ad_channel = "2264518497";
+google_color_border = "ECF0F6";
+google_color_bg = "ECF0F6";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+//-->
+</script>
+<script type="text/javascript" src="Getriebemotoren_Ansteuerung-Dateien/show_ads.js">
+</script>
+
+
+</center>	
+</div>
+
+
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="Getriebemotoren_Ansteuerung-Dateien/poweredby_mediawiki_88x31.png" alt="MediaWiki"></a></div>		<ul id="f-list">
+	  <li id="f-lastmod"> Diese Seite wurde zuletzt geändert um 18:43, 25. Nov 2010.</li>	  <li id="f-viewcount">Diese Seite wurde bisher 198526 mal abgerufen.</li>	  <br>
+	  	  	  	  <li id="f-about"><a href="http://www.rn-wissen.de/index.php/RN-Wissen:%C3%9Cber_RN-Wissen" title="RN-Wissen:Über RN-Wissen">Über RN-Wissen</a></li>	  <li id="f-disclaimer"><a href="http://www.rn-wissen.de/index.php/RN-Wissen:Lizenzbestimmungen" title="RN-Wissen:Lizenzbestimmungen">Lizenzbestimmungen</a></li>	  	</ul>
+      </div>
+    </div>
+
+
+    <!-- Served by dd5622 in 0.20 secs. -->  </body></html>
