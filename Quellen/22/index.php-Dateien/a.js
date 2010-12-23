@@ -1,0 +1,1 @@
+Geo = {"city":"Feucht","country":"DE","lat":"49.376701","lon":"11.213900","IP":"84.148.180.179","netmask":"23"}
